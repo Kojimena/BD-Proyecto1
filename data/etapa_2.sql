@@ -21,6 +21,26 @@ JOIN league ON match.league_id = league.id
 GROUP BY league.name_league, match.season, team.team_long_name
 ORDER BY league.name_league, match.season, equipo;
 
+-- goles a favor, gol en contra, diferencia de goles. RANK
+with ranking as (
+SELECT
+  league.name_league,
+  match.season,
+  team.team_long_name AS equipo,
+  SUM(CASE WHEN match.home_team_api_id = team.team_api_id THEN match.home_team_goal ELSE match.away_team_goal END) AS goles_a_favor,
+  SUM(CASE WHEN match.home_team_api_id = team.team_api_id THEN match.away_team_goal ELSE match.home_team_goal END) AS goles_en_contra,
+  SUM(CASE WHEN match.home_team_api_id = team.team_api_id THEN match.home_team_goal ELSE match.away_team_goal END) -
+    SUM(CASE WHEN match.home_team_api_id = team.team_api_id THEN match.away_team_goal ELSE match.home_team_goal END) AS diferencia_de_goles
+FROM match
+JOIN team ON match.home_team_api_id = team.team_api_id OR match.away_team_api_id = team.team_api_id
+JOIN league ON match.league_id = league.id
+GROUP BY league.name_league, match.season, team.team_long_name
+ORDER BY league.name_league, match.season, equipo
+)
+select equipo, diferencia_de_goles, rank() OVER (
+    order by diferencia_de_goles desc
+    )
+from ranking;
 
 -- Cantidad de juegos ganados
 with partidos as (
