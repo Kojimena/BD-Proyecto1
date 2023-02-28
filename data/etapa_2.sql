@@ -1,4 +1,10 @@
-
+select team_long_name, count(*) as played
+from team
+inner join match m on team.team_api_id = m.home_team_api_id
+inner join match m2 on team.team_api_id = m2.away_team_api_id
+where team_api_id = m.home_team_api_id or team_api_id = m2.away_team_api_id
+group by team_long_name
+order by played desc;
 
 -- Cantidad de juegos ganados
 with partidos as (
