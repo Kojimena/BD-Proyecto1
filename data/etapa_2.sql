@@ -37,7 +37,7 @@ JOIN league ON match.league_id = league.id
 GROUP BY league.name_league, match.season, team.team_long_name
 ORDER BY league.name_league, match.season, equipo
 )
-select equipo, diferencia_de_goles, rank() OVER (
+select equipo, season, diferencia_de_goles, rank() OVER (
     order by diferencia_de_goles desc
     )
 from ranking;
