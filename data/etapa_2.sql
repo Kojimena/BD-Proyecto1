@@ -21,7 +21,7 @@ JOIN league ON match.league_id = league.id
 GROUP BY league.name_league, match.season, team.team_long_name
 ORDER BY league.name_league, match.season, equipo;
 
--- goles a favor, gol en contra, diferencia de goles. RANK
+-- goles a favor, gol en contra, diferencia de goles. USANDO RANK
 with ranking as (
 SELECT
   league.name_league,
