@@ -1,8 +1,7 @@
 select team_long_name, count(*) as played
 from team
-inner join match m on team.team_api_id = m.home_team_api_id
-inner join match m2 on team.team_api_id = m2.away_team_api_id
-where team_api_id = m.home_team_api_id or team_api_id = m2.away_team_api_id
+inner join match m on team.team_api_id = m.home_team_api_id or team.team_api_id = m.away_team_api_id
+where team_api_id = m.home_team_api_id or team_api_id = m.away_team_api_id
 group by team_long_name
 order by played desc;
 
@@ -24,3 +23,4 @@ with partidos as (
 select team_long_name, victorias_t
 from team
 inner join partidos on team_api_id = ganador
+
