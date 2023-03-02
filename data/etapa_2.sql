@@ -70,7 +70,14 @@ from apuestas
 group by team_long_name
 order by promedio;
 
-
+-- Mejores jugadores por liga y temporada
+select
+    player_name,
+    season,
+    name_league
+from match
+join league l on l.id = match.league_id
+join player on player_fifa_api_id
 
 
 -- Cantidad de juegos ganados
