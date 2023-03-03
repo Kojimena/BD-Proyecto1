@@ -42,7 +42,7 @@ select equipo, season, diferencia_de_goles, rank() OVER (
     )
 from ranking;
 
--- Promedio de probabilidades de todas las casas de apuesta por: temporada, liga, equipo
+-- Ejercicio 4 Promedio de probabilidades de todas las casas de apuesta por: temporada, liga, equipo
 with apuestas as (
 select
     name_league,
@@ -64,11 +64,13 @@ join league l on match.league_id = l.id
 group by name_league, season, team_long_name
 order by team_long_name
 )
--- select *
--- from apuestas
--- where b365 is not null and bw is not null and iw is not null and lb is not null and ps is not null and wa is not null
---   and sj is not null and wa is not null and vc is not null and gb is not null and bs is not null;
 
+select *
+from apuestas
+where b365 is not null and bw is not null and iw is not null and lb is not null and ps is not null and wa is not null
+and sj is not null and wa is not null and vc is not null and gb is not null and bs is not null;
+
+-- Ejercicio 5
 select team_long_name, avg((b365 + bw + iw + lb + ps + wa + sj + vc + gb + bs)/10) as promedio
 from apuestas
 group by team_long_name
