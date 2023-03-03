@@ -16,7 +16,19 @@ df_player = pd.read_csv(r"proyecto1/data/Proyecto 1 - Datos/Player.csv", usecols
 df_team = pd.read_csv(r"proyecto1/data/Proyecto 1 - Datos/Team.csv", usecols=['id','team_api_id', 'team_fifa_api_id', 'team_long_name', 'team_short_name'])
 df_team_attributes = pd.read_csv(r"proyecto1/data/Proyecto 1 - Datos/Team_Attributes.csv", usecols=['id', 'team_fifa_api_id', 'date', 'buildUpPlaySpeed', 'buildUpPlayPassing', 'chanceCreationPassing', 'chanceCreationCrossing', 'chanceCreationShooting', 'defencePressure', 'defenceAggression']) 
 df_player_attributes = pd.read_csv("proyecto1/data/Proyecto 1 - Datos/Player_Attributes.csv", usecols=['id', 'player_fifa_api_id', 'date', 'overall_rating', 'potential', 'attacking_work_rate', 'defensive_work_rate'])
-df_match = pd.read_csv(r"proyecto1/data/Proyecto 1 - Datos/Match.csv", usecols= ['id','country_id','league_id','season','stage','date','match_api_id','home_team_api_id','away_team_api_id','home_team_goal','away_team_goal','B365H','B365D','B365A','BWH','BWD','BWA','IWH','IWD','IWA','LBH','LBD','LBA','PSH','PSD','PSA','WHH','WHD','WHA','SJH','SJD','SJA','VCH','VCD','VCA','GBH','GBD','GBA','BSH','BSD','BSA']) 
+#df_match = pd.read_csv(r"proyecto1/data/Proyecto 1 - Datos/Match.csv", usecols= ['id','country_id','league_id','season','stage','date','match_api_id','home_team_api_id','away_team_api_id','home_team_goal','away_team_goal','B365H','B365D','B365A','BWH','BWD','BWA','IWH','IWD','IWA','LBH','LBD','LBA','PSH','PSD','PSA','WHH','WHD','WHA','SJH','SJD','SJA','VCH','VCD','VCA','GBH','GBD','GBA','BSH','BSD','BSA']) 
+df_match = pd.read_csv(r"proyecto1/data/Proyecto 1 - Datos/Match.csv", 
+                       usecols=['id','country_id','league_id','season','stage','date','match_api_id',
+                                'home_team_api_id','away_team_api_id','home_team_goal','away_team_goal',
+                                'home_player_1', 'home_player_2', 'home_player_3', 'home_player_4', 
+                                'home_player_5', 'home_player_6', 'home_player_7', 'home_player_8', 
+                                'home_player_9', 'home_player_10', 'home_player_11', 'away_player_1', 
+                                'away_player_2', 'away_player_3', 'away_player_4', 'away_player_5', 
+                                'away_player_6', 'away_player_7', 'away_player_8', 'away_player_9', 
+                                'away_player_10', 'away_player_11',
+                                'B365H','B365D','B365A','BWH','BWD','BWA','IWH','IWD','IWA',
+                                'LBH','LBD','LBA','PSH','PSD','PSA','WHH','WHD','WHA','SJH',
+                                'SJD','SJA','VCH','VCD','VCA','GBH','GBD','GBA','BSH','BSD','BSA'])
 
 
 print ("--------------------------------------------------------------------------------------------------------------")
@@ -25,7 +37,7 @@ print ("------------------------------------------------------------------------
 conn = psycopg2.connect(database="fifa_data", user="postgres", password="", host="localhost", port="5432") # Conexión a la base de datos
 cur = conn.cursor() # Creación del cursor
 
-# Ingreso de datos de country a Postgres
+""" # Ingreso de datos de country a Postgres
 for i in range(len(df_country.index)):
     fila = df_country.iloc[i].tolist()
     fila[0] = int(fila[0])
@@ -127,7 +139,7 @@ for i in range(len(df_player_attributes.index)):
         conn.rollback()
         continue
     else:
-        conn.commit()
+        conn.commit() """
 
 
 # Ingreso de datos de match a Postgres
@@ -135,10 +147,10 @@ for i in range(len(df_match.index)):
     fila = df_match.iloc[i].tolist()
     # convertir todas las columnas a string
     for j in range(len(fila)):
-        #fila[j] = str(fila[j])
-        #if any fila is nan then continue
+        # fila[j] = str(fila[j])
+        # if any fila is nan then continue
         if fila[j] == 'nan':
-            fila[j] = 0 #if nan then 0
+            fila[j] = None  # if nan then 0
         # if any fila has numpy int64 then convert to int
         if type(fila[j]) == np.int64:
             fila[j] = int(fila[j])
@@ -146,8 +158,18 @@ for i in range(len(df_match.index)):
         if type(fila[j]) == np.float64:
             fila[j] = float(fila[j])
 
+    for k in range(11, 35):
+        if np.isnan(fila[k]):
+            fila[k] = None
+        else:
+            fila[k] = int(fila[k])
+    for j in range(35, 63):
+        if np.isnan(fila[j]):
+            fila[j] = None
     try:
-        cur.execute("INSERT INTO match VALUES (%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s)", fila)
+        cur.execute(
+            "INSERT INTO match VALUES (%s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s)",
+            fila)
     except Exception as e:
         print(f"Error en la fila {i}: {fila}")
         print(e)
@@ -157,5 +179,108 @@ for i in range(len(df_match.index)):
         conn.commit()
 
 
+
 cur.close()  # Cierre del cursor
+
+
+"""
+alter table player add constraint player_api_id_u unique (player_api_id);
+create table match(
+    id varchar(30) primary key,
+    country_id varchar(30),
+    league_id varchar(30),
+    season varchar(30),
+    stage integer,
+    date_game date,
+    match_api_id varchar(30),
+    home_team_api_id varchar(30),
+    away_team_api_id varchar(30),
+    home_team_goal integer,
+    away_team_goal integer,
+
+    home_player_1 varchar(30),
+    home_player_2 varchar(30),
+    home_player_3 varchar(30),
+    home_player_4 varchar(30),
+    home_player_5 varchar(30),
+    home_player_6 varchar(30),
+    home_player_7 varchar(30),
+    home_player_8 varchar(30),
+    home_player_9 varchar(30),
+    home_player_10 varchar(30),
+    home_player_11 varchar(30),
+    away_player_1 varchar(30),
+    away_player_2 varchar(30),
+    away_player_3 varchar(30),
+    away_player_4 varchar(30),
+    away_player_5 varchar(30),
+    away_player_6 varchar(30),
+    away_player_7 varchar(30),
+    away_player_8 varchar(30),
+    away_player_9 varchar(30),
+    away_player_10 varchar(30),
+    away_player_11 varchar(30),
+
+    B365H float,
+    B365D float,
+    B365A float,
+    BWH float,
+    BWD float,
+    BWA float,
+    IWH float,
+    IWD float,
+    IWA float,
+    LBH float,
+    LBD float,
+    LBA float,
+    PSH float,
+    PSD float,
+    PSA float,
+    WHH float,
+    WHD float,
+    WHA float,
+    SJH float,
+    SJD float,
+    SJA float,
+    VCH float,
+    VCD float,
+    VCA float,
+    GBH float,
+    GBD float,
+    GBA float,
+    BSH float,
+    BSD float,
+    BSA float,
+
+
+
+    foreign key (country_id) references country(id),
+    foreign key (league_id) references league(id),
+    foreign key (home_team_api_id) references team(team_api_id),
+    foreign key (away_team_api_id) references team(team_api_id),
+
+    FOREIGN KEY (home_player_1) REFERENCES player(player_api_id),
+    FOREIGN KEY (home_player_2) REFERENCES player(player_api_id),
+    FOREIGN KEY (home_player_3) REFERENCES player(player_api_id),
+    FOREIGN KEY (home_player_4) REFERENCES player(player_api_id),
+    FOREIGN KEY (home_player_5) REFERENCES player(player_api_id),
+    FOREIGN KEY (home_player_6) REFERENCES player(player_api_id),
+    FOREIGN KEY (home_player_7) REFERENCES player(player_api_id),
+    FOREIGN KEY (home_player_8) REFERENCES player(player_api_id),
+    FOREIGN KEY (home_player_9) REFERENCES player(player_api_id),
+    FOREIGN KEY (home_player_10) REFERENCES player(player_api_id),
+    FOREIGN KEY (home_player_11) REFERENCES player(player_api_id),
+    FOREIGN KEY (away_player_1) REFERENCES player(player_api_id),
+    FOREIGN KEY (away_player_2) REFERENCES player(player_api_id),
+    FOREIGN KEY (away_player_3) REFERENCES player(player_api_id),
+    FOREIGN KEY (away_player_4) REFERENCES player(player_api_id),
+    FOREIGN KEY (away_player_5) REFERENCES player(player_api_id),
+    FOREIGN KEY (away_player_6) REFERENCES player(player_api_id),
+    FOREIGN KEY (away_player_7) REFERENCES player(player_api_id),
+    FOREIGN KEY (away_player_8) REFERENCES player(player_api_id),
+    FOREIGN KEY (away_player_9) REFERENCES player(player_api_id),
+    FOREIGN KEY (away_player_10) REFERENCES player(player_api_id),
+    FOREIGN KEY (away_player_11) REFERENCES player(player_api_id)
+);
+"""
 
