@@ -34,6 +34,8 @@ create table match(
     away_player_10 varchar(30),
     away_player_11 varchar(30),
 
+    foul_commit varchar(999999),
+
     B365H float,
     B365D float,
     B365A float,
@@ -64,8 +66,6 @@ create table match(
     BSH float,
     BSD float,
     BSA float,
-
-
 
     foreign key (country_id) references country(id),
     foreign key (league_id) references league(id),

@@ -138,3 +138,33 @@ select team_long_name, victorias_t
 from team
 inner join partidos on team_api_id = ganador
 
+--Ejercicio 8  Quiénes son los 3 países líderes según apuestas
+with apuestas as (
+select
+    name_league,
+    c.name as country,
+    season,
+    team_long_name,
+    avg(case when match.home_team_api_id = team.team_api_id THEN match.b365h else match.b365a END) as b365,
+    avg(case when match.home_team_api_id = team.team_api_id THEN match.bwh else match.bwa END) as bw,
+    avg(case when match.home_team_api_id = team.team_api_id THEN match.iwh else match.iwa END) as iw,
+    avg(case when match.home_team_api_id = team.team_api_id THEN match.lbh else match.lba END) as lb,
+    avg(case when match.home_team_api_id = team.team_api_id THEN match.psh else match.psa END) as ps,
+    avg(case when match.home_team_api_id = team.team_api_id THEN match.whh else match.wha END) as wa,
+    avg(case when match.home_team_api_id = team.team_api_id THEN match.sjh else match.sja END) as sj,
+    avg(case when match.home_team_api_id = team.team_api_id THEN match.vch else match.vca END) as vc,
+    avg(case when match.home_team_api_id = team.team_api_id THEN match.gbh else match.gba END) as gb,
+    avg(case when match.home_team_api_id = team.team_api_id THEN match.bsh else match.bsa END) as bs
+from match
+join team on team_api_id = match.home_team_api_id or team_api_id = match.away_team_api_id
+join league l on match.league_id = l.id
+join country c  on match.country_id = c.id 
+group by c.name, name_league, season, team_long_name
+order by team_long_name
+) 
+select country, avg((b365 + bw + iw + lb + ps + wa + sj + vc + gb + bs)/10) as promedio
+from apuestas
+group by country
+order by promedio
+limit 3;
+

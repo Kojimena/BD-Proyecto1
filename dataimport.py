@@ -25,7 +25,7 @@ df_match = pd.read_csv(r"proyecto1/data/Proyecto 1 - Datos/Match.csv",
                                 'home_player_9', 'home_player_10', 'home_player_11', 'away_player_1', 
                                 'away_player_2', 'away_player_3', 'away_player_4', 'away_player_5', 
                                 'away_player_6', 'away_player_7', 'away_player_8', 'away_player_9', 
-                                'away_player_10', 'away_player_11',
+                                'away_player_10', 'away_player_11','foulcommit',
                                 'B365H','B365D','B365A','BWH','BWD','BWA','IWH','IWD','IWA',
                                 'LBH','LBD','LBA','PSH','PSD','PSA','WHH','WHD','WHA','SJH',
                                 'SJD','SJA','VCH','VCD','VCA','GBH','GBD','GBA','BSH','BSD','BSA'])
@@ -170,7 +170,7 @@ for i in range(len(df_match.index)):
             fila[j] = None
     try:
         cur.execute(
-            "INSERT INTO match VALUES (%s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s)",
+            "INSERT INTO match VALUES (%s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s)",
             fila)
     except Exception as e:
         print(f"Error en la fila {i}: {fila}")
@@ -185,8 +185,7 @@ for i in range(len(df_match.index)):
 cur.close()  # Cierre del cursor
 
 
-"""
-create table match(
+"""create table match(
     id varchar(30) primary key,
     country_id varchar(30),
     league_id varchar(30),
