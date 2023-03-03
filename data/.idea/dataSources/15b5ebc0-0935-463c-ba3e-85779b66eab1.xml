@@ -3,9 +3,17 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.45">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>304734</IntrospectionStateNumber>
+      <Grants>1||-9223372036854775808|c|G
+1||10|c|G
+1||10|C|G
+1||10|T|G
+4||-9223372036854775808|c|G
+4||10|c|G
+4||10|C|G
+4||10|T|G</Grants>
+      <IntrospectionStateNumber>401477</IntrospectionStateNumber>
       <ServerVersion>15.2</ServerVersion>
-      <StartupTime>1677798505</StartupTime>
+      <StartupTime>1677808583</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -1400,7 +1408,7 @@ false posixrules
 13350||10|C|G
 13350||-9223372036854775808|U|G
 13350||10|U|G</Grants>
-      <IntrospectionStateNumber>304734</IntrospectionStateNumber>
+      <IntrospectionStateNumber>401477</IntrospectionStateNumber>
       <ObjectId>17288</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4854,7 +4862,7 @@ false posixrules
     <schema id="271" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>304734</IntrospectionStateNumber>
+      <IntrospectionStateNumber>401477</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>517</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4872,8 +4880,8 @@ false posixrules
       <OwnerName>postgres</OwnerName>
     </table>
     <table id="274" parent="271" name="match">
-      <ObjectId>17636</ObjectId>
-      <StateNumber>304733</StateNumber>
+      <ObjectId>18186</ObjectId>
+      <StateNumber>375494</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
@@ -4986,720 +4994,726 @@ false posixrules
       <DasType>varchar(30)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="290" parent="274" name="country_id">
       <DasType>varchar(30)|0s</DasType>
       <Position>2</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="291" parent="274" name="league_id">
       <DasType>varchar(30)|0s</DasType>
       <Position>3</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="292" parent="274" name="season">
       <DasType>varchar(30)|0s</DasType>
       <Position>4</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="293" parent="274" name="stage">
       <DasType>integer|0s</DasType>
       <Position>5</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="294" parent="274" name="date_game">
       <DasType>date|0s</DasType>
       <Position>6</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1082</TypeId>
     </column>
     <column id="295" parent="274" name="match_api_id">
       <DasType>varchar(30)|0s</DasType>
       <Position>7</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="296" parent="274" name="home_team_api_id">
       <DasType>varchar(30)|0s</DasType>
       <Position>8</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="297" parent="274" name="away_team_api_id">
       <DasType>varchar(30)|0s</DasType>
       <Position>9</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="298" parent="274" name="home_team_goal">
       <DasType>integer|0s</DasType>
       <Position>10</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="299" parent="274" name="away_team_goal">
       <DasType>integer|0s</DasType>
       <Position>11</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="300" parent="274" name="home_player_1">
       <DasType>varchar(30)|0s</DasType>
       <Position>12</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="301" parent="274" name="home_player_2">
       <DasType>varchar(30)|0s</DasType>
       <Position>13</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="302" parent="274" name="home_player_3">
       <DasType>varchar(30)|0s</DasType>
       <Position>14</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="303" parent="274" name="home_player_4">
       <DasType>varchar(30)|0s</DasType>
       <Position>15</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="304" parent="274" name="home_player_5">
       <DasType>varchar(30)|0s</DasType>
       <Position>16</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="305" parent="274" name="home_player_6">
       <DasType>varchar(30)|0s</DasType>
       <Position>17</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="306" parent="274" name="home_player_7">
       <DasType>varchar(30)|0s</DasType>
       <Position>18</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="307" parent="274" name="home_player_8">
       <DasType>varchar(30)|0s</DasType>
       <Position>19</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="308" parent="274" name="home_player_9">
       <DasType>varchar(30)|0s</DasType>
       <Position>20</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="309" parent="274" name="home_player_10">
       <DasType>varchar(30)|0s</DasType>
       <Position>21</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="310" parent="274" name="home_player_11">
       <DasType>varchar(30)|0s</DasType>
       <Position>22</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="311" parent="274" name="away_player_1">
       <DasType>varchar(30)|0s</DasType>
       <Position>23</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="312" parent="274" name="away_player_2">
       <DasType>varchar(30)|0s</DasType>
       <Position>24</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="313" parent="274" name="away_player_3">
       <DasType>varchar(30)|0s</DasType>
       <Position>25</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="314" parent="274" name="away_player_4">
       <DasType>varchar(30)|0s</DasType>
       <Position>26</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="315" parent="274" name="away_player_5">
       <DasType>varchar(30)|0s</DasType>
       <Position>27</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="316" parent="274" name="away_player_6">
       <DasType>varchar(30)|0s</DasType>
       <Position>28</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="317" parent="274" name="away_player_7">
       <DasType>varchar(30)|0s</DasType>
       <Position>29</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="318" parent="274" name="away_player_8">
       <DasType>varchar(30)|0s</DasType>
       <Position>30</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="319" parent="274" name="away_player_9">
       <DasType>varchar(30)|0s</DasType>
       <Position>31</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="320" parent="274" name="away_player_10">
       <DasType>varchar(30)|0s</DasType>
       <Position>32</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="321" parent="274" name="away_player_11">
       <DasType>varchar(30)|0s</DasType>
       <Position>33</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="322" parent="274" name="b365h">
-      <DasType>double precision|0s</DasType>
+    <column id="322" parent="274" name="foul_commit">
+      <DasType>varchar(999999)|0s</DasType>
       <Position>34</Position>
-      <StateNumber>304733</StateNumber>
-      <TypeId>701</TypeId>
+      <StateNumber>375494</StateNumber>
+      <TypeId>1043</TypeId>
     </column>
-    <column id="323" parent="274" name="b365d">
+    <column id="323" parent="274" name="b365h">
       <DasType>double precision|0s</DasType>
       <Position>35</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="324" parent="274" name="b365a">
+    <column id="324" parent="274" name="b365d">
       <DasType>double precision|0s</DasType>
       <Position>36</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="325" parent="274" name="bwh">
+    <column id="325" parent="274" name="b365a">
       <DasType>double precision|0s</DasType>
       <Position>37</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="326" parent="274" name="bwd">
+    <column id="326" parent="274" name="bwh">
       <DasType>double precision|0s</DasType>
       <Position>38</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="327" parent="274" name="bwa">
+    <column id="327" parent="274" name="bwd">
       <DasType>double precision|0s</DasType>
       <Position>39</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="328" parent="274" name="iwh">
+    <column id="328" parent="274" name="bwa">
       <DasType>double precision|0s</DasType>
       <Position>40</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="329" parent="274" name="iwd">
+    <column id="329" parent="274" name="iwh">
       <DasType>double precision|0s</DasType>
       <Position>41</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="330" parent="274" name="iwa">
+    <column id="330" parent="274" name="iwd">
       <DasType>double precision|0s</DasType>
       <Position>42</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="331" parent="274" name="lbh">
+    <column id="331" parent="274" name="iwa">
       <DasType>double precision|0s</DasType>
       <Position>43</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="332" parent="274" name="lbd">
+    <column id="332" parent="274" name="lbh">
       <DasType>double precision|0s</DasType>
       <Position>44</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="333" parent="274" name="lba">
+    <column id="333" parent="274" name="lbd">
       <DasType>double precision|0s</DasType>
       <Position>45</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="334" parent="274" name="psh">
+    <column id="334" parent="274" name="lba">
       <DasType>double precision|0s</DasType>
       <Position>46</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="335" parent="274" name="psd">
+    <column id="335" parent="274" name="psh">
       <DasType>double precision|0s</DasType>
       <Position>47</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="336" parent="274" name="psa">
+    <column id="336" parent="274" name="psd">
       <DasType>double precision|0s</DasType>
       <Position>48</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="337" parent="274" name="whh">
+    <column id="337" parent="274" name="psa">
       <DasType>double precision|0s</DasType>
       <Position>49</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="338" parent="274" name="whd">
+    <column id="338" parent="274" name="whh">
       <DasType>double precision|0s</DasType>
       <Position>50</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="339" parent="274" name="wha">
+    <column id="339" parent="274" name="whd">
       <DasType>double precision|0s</DasType>
       <Position>51</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="340" parent="274" name="sjh">
+    <column id="340" parent="274" name="wha">
       <DasType>double precision|0s</DasType>
       <Position>52</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="341" parent="274" name="sjd">
+    <column id="341" parent="274" name="sjh">
       <DasType>double precision|0s</DasType>
       <Position>53</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="342" parent="274" name="sja">
+    <column id="342" parent="274" name="sjd">
       <DasType>double precision|0s</DasType>
       <Position>54</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="343" parent="274" name="vch">
+    <column id="343" parent="274" name="sja">
       <DasType>double precision|0s</DasType>
       <Position>55</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="344" parent="274" name="vcd">
+    <column id="344" parent="274" name="vch">
       <DasType>double precision|0s</DasType>
       <Position>56</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="345" parent="274" name="vca">
+    <column id="345" parent="274" name="vcd">
       <DasType>double precision|0s</DasType>
       <Position>57</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="346" parent="274" name="gbh">
+    <column id="346" parent="274" name="vca">
       <DasType>double precision|0s</DasType>
       <Position>58</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="347" parent="274" name="gbd">
+    <column id="347" parent="274" name="gbh">
       <DasType>double precision|0s</DasType>
       <Position>59</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="348" parent="274" name="gba">
+    <column id="348" parent="274" name="gbd">
       <DasType>double precision|0s</DasType>
       <Position>60</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="349" parent="274" name="bsh">
+    <column id="349" parent="274" name="gba">
       <DasType>double precision|0s</DasType>
       <Position>61</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="350" parent="274" name="bsd">
+    <column id="350" parent="274" name="bsh">
       <DasType>double precision|0s</DasType>
       <Position>62</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="351" parent="274" name="bsa">
+    <column id="351" parent="274" name="bsd">
       <DasType>double precision|0s</DasType>
       <Position>63</Position>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <foreign-key id="352" parent="274" name="match_country_id_fkey">
+    <column id="352" parent="274" name="bsa">
+      <DasType>double precision|0s</DasType>
+      <Position>64</Position>
+      <StateNumber>375494</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <foreign-key id="353" parent="274" name="match_country_id_fkey">
       <ColNames>country_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17643</ObjectId>
+      <ObjectId>18193</ObjectId>
       <RefColNames>id</RefColNames>
       <RefColPositions>1</RefColPositions>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <RefTableId>17338</RefTableId>
       <RefTableName>country</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="353" parent="274" name="match_league_id_fkey">
+    <foreign-key id="354" parent="274" name="match_league_id_fkey">
       <ColNames>league_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17648</ObjectId>
+      <ObjectId>18198</ObjectId>
       <RefColNames>id</RefColNames>
       <RefColPositions>1</RefColPositions>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <RefTableId>17343</RefTableId>
       <RefTableName>league</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="354" parent="274" name="match_home_team_api_id_fkey">
+    <foreign-key id="355" parent="274" name="match_home_team_api_id_fkey">
       <ColNames>home_team_api_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17653</ObjectId>
+      <ObjectId>18203</ObjectId>
       <RefColNames>team_api_id</RefColNames>
       <RefColPositions>2</RefColPositions>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <RefTableId>17368</RefTableId>
       <RefTableName>team</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="355" parent="274" name="match_away_team_api_id_fkey">
+    <foreign-key id="356" parent="274" name="match_away_team_api_id_fkey">
       <ColNames>away_team_api_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17658</ObjectId>
+      <ObjectId>18208</ObjectId>
       <RefColNames>team_api_id</RefColNames>
       <RefColPositions>2</RefColPositions>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <RefTableId>17368</RefTableId>
       <RefTableName>team</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="356" parent="274" name="match_home_player_1_fkey">
+    <foreign-key id="357" parent="274" name="match_home_player_1_fkey">
       <ColNames>home_player_1</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17663</ObjectId>
+      <ObjectId>18213</ObjectId>
       <RefColNames>player_api_id</RefColNames>
       <RefColPositions>2</RefColPositions>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <RefTableId>17412</RefTableId>
       <RefTableName>player</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="357" parent="274" name="match_home_player_2_fkey">
+    <foreign-key id="358" parent="274" name="match_home_player_2_fkey">
       <ColNames>home_player_2</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17668</ObjectId>
+      <ObjectId>18218</ObjectId>
       <RefColNames>player_api_id</RefColNames>
       <RefColPositions>2</RefColPositions>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <RefTableId>17412</RefTableId>
       <RefTableName>player</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="358" parent="274" name="match_home_player_3_fkey">
+    <foreign-key id="359" parent="274" name="match_home_player_3_fkey">
       <ColNames>home_player_3</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17673</ObjectId>
+      <ObjectId>18223</ObjectId>
       <RefColNames>player_api_id</RefColNames>
       <RefColPositions>2</RefColPositions>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <RefTableId>17412</RefTableId>
       <RefTableName>player</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="359" parent="274" name="match_home_player_4_fkey">
+    <foreign-key id="360" parent="274" name="match_home_player_4_fkey">
       <ColNames>home_player_4</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17678</ObjectId>
+      <ObjectId>18228</ObjectId>
       <RefColNames>player_api_id</RefColNames>
       <RefColPositions>2</RefColPositions>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <RefTableId>17412</RefTableId>
       <RefTableName>player</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="360" parent="274" name="match_home_player_5_fkey">
+    <foreign-key id="361" parent="274" name="match_home_player_5_fkey">
       <ColNames>home_player_5</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17683</ObjectId>
+      <ObjectId>18233</ObjectId>
       <RefColNames>player_api_id</RefColNames>
       <RefColPositions>2</RefColPositions>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <RefTableId>17412</RefTableId>
       <RefTableName>player</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="361" parent="274" name="match_home_player_6_fkey">
+    <foreign-key id="362" parent="274" name="match_home_player_6_fkey">
       <ColNames>home_player_6</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17688</ObjectId>
+      <ObjectId>18238</ObjectId>
       <RefColNames>player_api_id</RefColNames>
       <RefColPositions>2</RefColPositions>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <RefTableId>17412</RefTableId>
       <RefTableName>player</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="362" parent="274" name="match_home_player_7_fkey">
+    <foreign-key id="363" parent="274" name="match_home_player_7_fkey">
       <ColNames>home_player_7</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17693</ObjectId>
+      <ObjectId>18243</ObjectId>
       <RefColNames>player_api_id</RefColNames>
       <RefColPositions>2</RefColPositions>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <RefTableId>17412</RefTableId>
       <RefTableName>player</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="363" parent="274" name="match_home_player_8_fkey">
+    <foreign-key id="364" parent="274" name="match_home_player_8_fkey">
       <ColNames>home_player_8</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17698</ObjectId>
+      <ObjectId>18248</ObjectId>
       <RefColNames>player_api_id</RefColNames>
       <RefColPositions>2</RefColPositions>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <RefTableId>17412</RefTableId>
       <RefTableName>player</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="364" parent="274" name="match_home_player_9_fkey">
+    <foreign-key id="365" parent="274" name="match_home_player_9_fkey">
       <ColNames>home_player_9</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17703</ObjectId>
+      <ObjectId>18253</ObjectId>
       <RefColNames>player_api_id</RefColNames>
       <RefColPositions>2</RefColPositions>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <RefTableId>17412</RefTableId>
       <RefTableName>player</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="365" parent="274" name="match_home_player_10_fkey">
+    <foreign-key id="366" parent="274" name="match_home_player_10_fkey">
       <ColNames>home_player_10</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17708</ObjectId>
+      <ObjectId>18258</ObjectId>
       <RefColNames>player_api_id</RefColNames>
       <RefColPositions>2</RefColPositions>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <RefTableId>17412</RefTableId>
       <RefTableName>player</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="366" parent="274" name="match_home_player_11_fkey">
+    <foreign-key id="367" parent="274" name="match_home_player_11_fkey">
       <ColNames>home_player_11</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17713</ObjectId>
+      <ObjectId>18263</ObjectId>
       <RefColNames>player_api_id</RefColNames>
       <RefColPositions>2</RefColPositions>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <RefTableId>17412</RefTableId>
       <RefTableName>player</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="367" parent="274" name="match_away_player_1_fkey">
+    <foreign-key id="368" parent="274" name="match_away_player_1_fkey">
       <ColNames>away_player_1</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17718</ObjectId>
+      <ObjectId>18268</ObjectId>
       <RefColNames>player_api_id</RefColNames>
       <RefColPositions>2</RefColPositions>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <RefTableId>17412</RefTableId>
       <RefTableName>player</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="368" parent="274" name="match_away_player_2_fkey">
+    <foreign-key id="369" parent="274" name="match_away_player_2_fkey">
       <ColNames>away_player_2</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17723</ObjectId>
+      <ObjectId>18273</ObjectId>
       <RefColNames>player_api_id</RefColNames>
       <RefColPositions>2</RefColPositions>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <RefTableId>17412</RefTableId>
       <RefTableName>player</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="369" parent="274" name="match_away_player_3_fkey">
+    <foreign-key id="370" parent="274" name="match_away_player_3_fkey">
       <ColNames>away_player_3</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17728</ObjectId>
+      <ObjectId>18278</ObjectId>
       <RefColNames>player_api_id</RefColNames>
       <RefColPositions>2</RefColPositions>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <RefTableId>17412</RefTableId>
       <RefTableName>player</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="370" parent="274" name="match_away_player_4_fkey">
+    <foreign-key id="371" parent="274" name="match_away_player_4_fkey">
       <ColNames>away_player_4</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17733</ObjectId>
+      <ObjectId>18283</ObjectId>
       <RefColNames>player_api_id</RefColNames>
       <RefColPositions>2</RefColPositions>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <RefTableId>17412</RefTableId>
       <RefTableName>player</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="371" parent="274" name="match_away_player_5_fkey">
+    <foreign-key id="372" parent="274" name="match_away_player_5_fkey">
       <ColNames>away_player_5</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17738</ObjectId>
+      <ObjectId>18288</ObjectId>
       <RefColNames>player_api_id</RefColNames>
       <RefColPositions>2</RefColPositions>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <RefTableId>17412</RefTableId>
       <RefTableName>player</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="372" parent="274" name="match_away_player_6_fkey">
+    <foreign-key id="373" parent="274" name="match_away_player_6_fkey">
       <ColNames>away_player_6</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17743</ObjectId>
+      <ObjectId>18293</ObjectId>
       <RefColNames>player_api_id</RefColNames>
       <RefColPositions>2</RefColPositions>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <RefTableId>17412</RefTableId>
       <RefTableName>player</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="373" parent="274" name="match_away_player_7_fkey">
+    <foreign-key id="374" parent="274" name="match_away_player_7_fkey">
       <ColNames>away_player_7</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17748</ObjectId>
+      <ObjectId>18298</ObjectId>
       <RefColNames>player_api_id</RefColNames>
       <RefColPositions>2</RefColPositions>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <RefTableId>17412</RefTableId>
       <RefTableName>player</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="374" parent="274" name="match_away_player_8_fkey">
+    <foreign-key id="375" parent="274" name="match_away_player_8_fkey">
       <ColNames>away_player_8</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17753</ObjectId>
+      <ObjectId>18303</ObjectId>
       <RefColNames>player_api_id</RefColNames>
       <RefColPositions>2</RefColPositions>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <RefTableId>17412</RefTableId>
       <RefTableName>player</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="375" parent="274" name="match_away_player_9_fkey">
+    <foreign-key id="376" parent="274" name="match_away_player_9_fkey">
       <ColNames>away_player_9</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17758</ObjectId>
+      <ObjectId>18308</ObjectId>
       <RefColNames>player_api_id</RefColNames>
       <RefColPositions>2</RefColPositions>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <RefTableId>17412</RefTableId>
       <RefTableName>player</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="376" parent="274" name="match_away_player_10_fkey">
+    <foreign-key id="377" parent="274" name="match_away_player_10_fkey">
       <ColNames>away_player_10</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17763</ObjectId>
+      <ObjectId>18313</ObjectId>
       <RefColNames>player_api_id</RefColNames>
       <RefColPositions>2</RefColPositions>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <RefTableId>17412</RefTableId>
       <RefTableName>player</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="377" parent="274" name="match_away_player_11_fkey">
+    <foreign-key id="378" parent="274" name="match_away_player_11_fkey">
       <ColNames>away_player_11</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17768</ObjectId>
+      <ObjectId>18318</ObjectId>
       <RefColNames>player_api_id</RefColNames>
       <RefColPositions>2</RefColPositions>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <RefTableId>17412</RefTableId>
       <RefTableName>player</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <index id="378" parent="274" name="match_pkey">
+    <index id="379" parent="274" name="match_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17641</ObjectId>
+      <ObjectId>18191</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>304733</StateNumber>
+      <StateNumber>375494</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="379" parent="274" name="match_pkey">
+    <key id="380" parent="274" name="match_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17642</ObjectId>
+      <ObjectId>18192</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>304733</StateNumber>
-      <UnderlyingIndexId>17641</UnderlyingIndexId>
+      <StateNumber>375494</StateNumber>
+      <UnderlyingIndexId>18191</UnderlyingIndexId>
     </key>
-    <column id="380" parent="275" name="id">
+    <column id="381" parent="275" name="id">
       <DasType>varchar(30)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>1582</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="381" parent="275" name="player_api_id">
+    <column id="382" parent="275" name="player_api_id">
       <DasType>varchar(30)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>1582</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="382" parent="275" name="player_name">
+    <column id="383" parent="275" name="player_name">
       <DasType>varchar(50)|0s</DasType>
       <Position>3</Position>
       <StateNumber>4323</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="383" parent="275" name="player_fifa_api_id">
+    <column id="384" parent="275" name="player_fifa_api_id">
       <DasType>varchar(30)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>1582</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="384" parent="275" name="birthday">
+    <column id="385" parent="275" name="birthday">
       <DasType>date|0s</DasType>
       <Position>5</Position>
       <StateNumber>1582</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <index id="385" parent="275" name="player_pkey">
+    <index id="386" parent="275" name="player_pkey">
       <ColNames>id
 player_api_id
 player_fifa_api_id</ColNames>
@@ -5719,7 +5733,7 @@ pg_catalog</CollationParentNames>
 100
 100</CollationIds>
     </index>
-    <index id="386" parent="275" name="player_api_id_u">
+    <index id="387" parent="275" name="player_api_id_u">
       <ColNames>player_api_id</ColNames>
       <ObjectId>17442</ObjectId>
       <StateNumber>224816</StateNumber>
@@ -5729,7 +5743,7 @@ pg_catalog</CollationParentNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <index id="387" parent="275" name="player_player_fifa_api_id_key">
+    <index id="388" parent="275" name="player_player_fifa_api_id_key">
       <ColNames>player_fifa_api_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17417</ObjectId>
@@ -5740,68 +5754,68 @@ pg_catalog</CollationParentNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="388" parent="275" name="player_pkey">
+    <key id="389" parent="275" name="player_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17416</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1582</StateNumber>
       <UnderlyingIndexId>17415</UnderlyingIndexId>
     </key>
-    <key id="389" parent="275" name="player_api_id_u">
+    <key id="390" parent="275" name="player_api_id_u">
       <ObjectId>17443</ObjectId>
       <StateNumber>224816</StateNumber>
       <UnderlyingIndexId>17442</UnderlyingIndexId>
     </key>
-    <key id="390" parent="275" name="player_player_fifa_api_id_key">
+    <key id="391" parent="275" name="player_player_fifa_api_id_key">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17418</ObjectId>
       <StateNumber>1582</StateNumber>
       <UnderlyingIndexId>17417</UnderlyingIndexId>
     </key>
-    <column id="391" parent="276" name="id">
+    <column id="392" parent="276" name="id">
       <DasType>varchar(30)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>18074</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="392" parent="276" name="player_fifa_api_id">
+    <column id="393" parent="276" name="player_fifa_api_id">
       <DasType>varchar(30)|0s</DasType>
       <Position>2</Position>
       <StateNumber>18074</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="393" parent="276" name="date_reg">
+    <column id="394" parent="276" name="date_reg">
       <DasType>date|0s</DasType>
       <Position>3</Position>
       <StateNumber>18074</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="394" parent="276" name="overall_rating">
+    <column id="395" parent="276" name="overall_rating">
       <DasType>integer|0s</DasType>
       <Position>4</Position>
       <StateNumber>18074</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="395" parent="276" name="potential">
+    <column id="396" parent="276" name="potential">
       <DasType>integer|0s</DasType>
       <Position>5</Position>
       <StateNumber>18074</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="396" parent="276" name="attacking_work_rate">
+    <column id="397" parent="276" name="attacking_work_rate">
       <DasType>varchar(30)|0s</DasType>
       <Position>6</Position>
       <StateNumber>18074</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="397" parent="276" name="deffensive_work_rate">
+    <column id="398" parent="276" name="deffensive_work_rate">
       <DasType>varchar(30)|0s</DasType>
       <Position>7</Position>
       <StateNumber>18074</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <foreign-key id="398" parent="276" name="player_atributes_player_fifa_api_id_fkey">
+    <foreign-key id="399" parent="276" name="player_atributes_player_fifa_api_id_fkey">
       <ColNames>player_fifa_api_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17437</ObjectId>
@@ -5812,7 +5826,7 @@ pg_catalog</CollationParentNames>
       <RefTableName>player</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <index id="399" parent="276" name="player_atributes_pkey">
+    <index id="400" parent="276" name="player_atributes_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17435</ObjectId>
@@ -5824,47 +5838,47 @@ pg_catalog</CollationParentNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="400" parent="276" name="player_atributes_pkey">
+    <key id="401" parent="276" name="player_atributes_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17436</ObjectId>
       <Primary>1</Primary>
       <StateNumber>18074</StateNumber>
       <UnderlyingIndexId>17435</UnderlyingIndexId>
     </key>
-    <column id="401" parent="277" name="id">
+    <column id="402" parent="277" name="id">
       <DasType>varchar(30)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>1542</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="402" parent="277" name="team_api_id">
+    <column id="403" parent="277" name="team_api_id">
       <DasType>varchar(30)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>1542</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="403" parent="277" name="team_fifa_api_id">
+    <column id="404" parent="277" name="team_fifa_api_id">
       <DasType>varchar(30)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>1542</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="404" parent="277" name="team_long_name">
+    <column id="405" parent="277" name="team_long_name">
       <DasType>varchar(30)|0s</DasType>
       <Position>4</Position>
       <StateNumber>1542</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="405" parent="277" name="team_short_name">
+    <column id="406" parent="277" name="team_short_name">
       <DasType>varchar(30)|0s</DasType>
       <Position>5</Position>
       <StateNumber>1542</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="406" parent="277" name="team_pkey">
+    <index id="407" parent="277" name="team_pkey">
       <ColNames>id
 team_api_id
 team_fifa_api_id</ColNames>
@@ -5884,7 +5898,7 @@ pg_catalog</CollationParentNames>
 100
 100</CollationIds>
     </index>
-    <index id="407" parent="277" name="team_team_api_id_key">
+    <index id="408" parent="277" name="team_team_api_id_key">
       <ColNames>team_api_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17373</ObjectId>
@@ -5895,7 +5909,7 @@ pg_catalog</CollationParentNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <index id="408" parent="277" name="team_team_fifa_api_id_key">
+    <index id="409" parent="277" name="team_team_fifa_api_id_key">
       <ColNames>team_fifa_api_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17375</ObjectId>
@@ -5906,87 +5920,87 @@ pg_catalog</CollationParentNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="409" parent="277" name="team_pkey">
+    <key id="410" parent="277" name="team_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17372</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1542</StateNumber>
       <UnderlyingIndexId>17371</UnderlyingIndexId>
     </key>
-    <key id="410" parent="277" name="team_team_api_id_key">
+    <key id="411" parent="277" name="team_team_api_id_key">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17374</ObjectId>
       <StateNumber>1542</StateNumber>
       <UnderlyingIndexId>17373</UnderlyingIndexId>
     </key>
-    <key id="411" parent="277" name="team_team_fifa_api_id_key">
+    <key id="412" parent="277" name="team_team_fifa_api_id_key">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17376</ObjectId>
       <StateNumber>1542</StateNumber>
       <UnderlyingIndexId>17375</UnderlyingIndexId>
     </key>
-    <column id="412" parent="278" name="id">
+    <column id="413" parent="278" name="id">
       <DasType>varchar(30)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>1544</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="413" parent="278" name="team_fifa_api_id">
+    <column id="414" parent="278" name="team_fifa_api_id">
       <DasType>varchar(30)|0s</DasType>
       <Position>2</Position>
       <StateNumber>1544</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="414" parent="278" name="date_reg">
+    <column id="415" parent="278" name="date_reg">
       <DasType>date|0s</DasType>
       <Position>3</Position>
       <StateNumber>1544</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="415" parent="278" name="buildupplayspeed">
+    <column id="416" parent="278" name="buildupplayspeed">
       <DasType>integer|0s</DasType>
       <Position>4</Position>
       <StateNumber>1544</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="416" parent="278" name="buildupplaypassing">
+    <column id="417" parent="278" name="buildupplaypassing">
       <DasType>integer|0s</DasType>
       <Position>5</Position>
       <StateNumber>1544</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="417" parent="278" name="chancecreationpassing">
+    <column id="418" parent="278" name="chancecreationpassing">
       <DasType>integer|0s</DasType>
       <Position>6</Position>
       <StateNumber>1544</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="418" parent="278" name="chancecreationcrossing">
+    <column id="419" parent="278" name="chancecreationcrossing">
       <DasType>integer|0s</DasType>
       <Position>7</Position>
       <StateNumber>1544</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="419" parent="278" name="chancecreationshooting">
+    <column id="420" parent="278" name="chancecreationshooting">
       <DasType>integer|0s</DasType>
       <Position>8</Position>
       <StateNumber>1544</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="420" parent="278" name="defencepressure">
+    <column id="421" parent="278" name="defencepressure">
       <DasType>integer|0s</DasType>
       <Position>9</Position>
       <StateNumber>1544</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="421" parent="278" name="defenceaggression">
+    <column id="422" parent="278" name="defenceaggression">
       <DasType>integer|0s</DasType>
       <Position>10</Position>
       <StateNumber>1544</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="422" parent="278" name="team_atributes_team_fifa_api_id_fkey">
+    <foreign-key id="423" parent="278" name="team_atributes_team_fifa_api_id_fkey">
       <ColNames>team_fifa_api_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17382</ObjectId>
@@ -5997,7 +6011,7 @@ pg_catalog</CollationParentNames>
       <RefTableName>team</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <index id="423" parent="278" name="team_atributes_pkey">
+    <index id="424" parent="278" name="team_atributes_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17380</ObjectId>
@@ -6009,7 +6023,7 @@ pg_catalog</CollationParentNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="424" parent="278" name="team_atributes_pkey">
+    <key id="425" parent="278" name="team_atributes_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17381</ObjectId>
       <Primary>1</Primary>
