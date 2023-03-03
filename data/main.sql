@@ -2,7 +2,9 @@
 
 drop table player_Atributes;
 drop table player;
-
+drop table match;
+alter table player add constraint player_api_id_u unique (player_api_id);
+alter table player drop constraint player_api_id_u;
 alter table player
     alter column player_name type varchar(50);
 
@@ -62,7 +64,7 @@ create table league(
     foreign key (country_id) references country(id)
 
 );
-
+-- home_player_1	home_player_2	home_player_3	home_player_4	home_player_5	home_player_6	home_player_7	home_player_8	home_player_9	home_player_10	home_player_11	away_player_1	away_player_2	away_player_3	away_player_4	away_player_5	away_player_6	away_player_7	away_player_8	away_player_9	away_player_10	away_player_11
 create table match(
     id varchar(30) primary key,
     country_id varchar(30),
@@ -75,6 +77,30 @@ create table match(
     away_team_api_id varchar(30),
     home_team_goal integer,
     away_team_goal integer,
+
+    home_player_1 varchar(30),
+    home_player_2 varchar(30),
+    home_player_3 varchar(30),
+    home_player_4 varchar(30),
+    home_player_5 varchar(30),
+    home_player_6 varchar(30),
+    home_player_7 varchar(30),
+    home_player_8 varchar(30),
+    home_player_9 varchar(30),
+    home_player_10 varchar(30),
+    home_player_11 varchar(30),
+    away_player_1 varchar(30),
+    away_player_2 varchar(30),
+    away_player_3 varchar(30),
+    away_player_4 varchar(30),
+    away_player_5 varchar(30),
+    away_player_6 varchar(30),
+    away_player_7 varchar(30),
+    away_player_8 varchar(30),
+    away_player_9 varchar(30),
+    away_player_10 varchar(30),
+    away_player_11 varchar(30),
+
     B365H float,
     B365D float,
     B365A float,
@@ -105,8 +131,34 @@ create table match(
     BSH float,
     BSD float,
     BSA float,
+
+
+
     foreign key (country_id) references country(id),
     foreign key (league_id) references league(id),
     foreign key (home_team_api_id) references team(team_api_id),
-    foreign key (away_team_api_id) references team(team_api_id)
+    foreign key (away_team_api_id) references team(team_api_id),
+
+    FOREIGN KEY (home_player_1) REFERENCES player(player_api_id),
+    FOREIGN KEY (home_player_2) REFERENCES player(player_api_id),
+    FOREIGN KEY (home_player_3) REFERENCES player(player_api_id),
+    FOREIGN KEY (home_player_4) REFERENCES player(player_api_id),
+    FOREIGN KEY (home_player_5) REFERENCES player(player_api_id),
+    FOREIGN KEY (home_player_6) REFERENCES player(player_api_id),
+    FOREIGN KEY (home_player_7) REFERENCES player(player_api_id),
+    FOREIGN KEY (home_player_8) REFERENCES player(player_api_id),
+    FOREIGN KEY (home_player_9) REFERENCES player(player_api_id),
+    FOREIGN KEY (home_player_10) REFERENCES player(player_api_id),
+    FOREIGN KEY (home_player_11) REFERENCES player(player_api_id),
+    FOREIGN KEY (away_player_1) REFERENCES player(player_api_id),
+    FOREIGN KEY (away_player_2) REFERENCES player(player_api_id),
+    FOREIGN KEY (away_player_3) REFERENCES player(player_api_id),
+    FOREIGN KEY (away_player_4) REFERENCES player(player_api_id),
+    FOREIGN KEY (away_player_5) REFERENCES player(player_api_id),
+    FOREIGN KEY (away_player_6) REFERENCES player(player_api_id),
+    FOREIGN KEY (away_player_7) REFERENCES player(player_api_id),
+    FOREIGN KEY (away_player_8) REFERENCES player(player_api_id),
+    FOREIGN KEY (away_player_9) REFERENCES player(player_api_id),
+    FOREIGN KEY (away_player_10) REFERENCES player(player_api_id),
+    FOREIGN KEY (away_player_11) REFERENCES player(player_api_id)
 );
