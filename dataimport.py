@@ -147,7 +147,6 @@ for i in range(len(df_match.index)):
     fila = df_match.iloc[i].tolist()
     # convertir todas las columnas a string
     for j in range(len(fila)):
-        # fila[j] = str(fila[j])
         # if any fila is nan then continue
         if fila[j] == 'nan':
             fila[j] = None  # if nan then 0
@@ -159,10 +158,13 @@ for i in range(len(df_match.index)):
             fila[j] = float(fila[j])
 
     for k in range(11, 35):
-        if np.isnan(fila[k]):
-            fila[k] = None
-        else:
-            fila[k] = int(fila[k])
+        try:
+            if np.isnan(fila[k]):
+                fila[k] = None
+            else:
+                fila[k] = int(fila[k])
+        except:
+            pass
     for j in range(35, 63):
         if np.isnan(fila[j]):
             fila[j] = None
@@ -184,7 +186,6 @@ cur.close()  # Cierre del cursor
 
 
 """
-alter table player add constraint player_api_id_u unique (player_api_id);
 create table match(
     id varchar(30) primary key,
     country_id varchar(30),
@@ -221,6 +222,8 @@ create table match(
     away_player_10 varchar(30),
     away_player_11 varchar(30),
 
+    foul_commit varchar(999999),
+
     B365H float,
     B365D float,
     B365A float,
@@ -251,8 +254,6 @@ create table match(
     BSH float,
     BSD float,
     BSA float,
-
-
 
     foreign key (country_id) references country(id),
     foreign key (league_id) references league(id),
