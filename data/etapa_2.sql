@@ -1,9 +1,9 @@
 -- Cantidad de juegos jugados por cada equipo
-select team_long_name, count(*) as played
+select season, team_long_name, count(*) as played
 from team
 inner join match m on team.team_api_id = m.home_team_api_id or team.team_api_id = m.away_team_api_id
 where team_api_id = m.home_team_api_id or team_api_id = m.away_team_api_id
-group by team_long_name
+group by team_long_name, season
 order by played desc;
 
 -- goles a favor, gol en contra, diferencia de goles
@@ -90,7 +90,7 @@ select
   	player.player_name,
     from match m
 	JOIN league ON m.league_id = league.id
-    JOIN player_atributes pa on pa.id = 
+    JOIN player_atributes pa on pa.id =
 	JOIN player on player.player_api_id = m.home_player_1 or
 				player.player_api_id = m.home_player_2 or 
 				player.player_api_id = m.home_player_3 or 
