@@ -77,15 +77,22 @@ group by team_long_name
 order by promedio;
 
 -- Ejercicio 5: Mejores jugadores por liga y temporada
-
 select
+    l.name_league,
+    season,
     p.player_name,
     pa.attacking_work_rate ,
     pa.deffensive_work_rate,
-    pa.overall_rating
+    avg(pa.overall_rating) as overall_rating_p,
+    avg(pa.sprint_speed) as sprint_speed_p
 from player p
-inner join player_atributes pa on p.id = pa.id
-where pa.attacking_work_rate LIKE 'high' and pa.deffensive_work_rate LIKE 'high' order by pa.overall_rating desc;
+inner join player_atributes pa on pa.player_fifa_api_id = p.player_fifa_api_id
+inner join match m on m.home_player_1 = p.id or m.home_player_2 = p.id or 
+m.home_player_3 = p.id or m.home_player_4 = p.id or m.home_player_5 = p.id or 
+m.home_player_6 = p.id or m.home_player_7 = p.id or m.home_player_8 = p.id or m.home_player_9 = p.id or m.home_player_10 = p.id or m.home_player_11 = p.id
+inner join league l on m.league_id = l.id
+where pa.attacking_work_rate LIKE 'high' and pa.deffensive_work_rate LIKE 'high'
+group by p.player_name, pa.attacking_work_rate, pa.deffensive_work_rate, l.name_league, season;
 
 -- Ejercicio 6: Jugadores más veloces
 select 
