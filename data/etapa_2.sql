@@ -84,6 +84,37 @@ inner join player_atributes pa on p.id = pa.id
 where pa.attacking_work_rate LIKE 'high' and pa.deffensive_work_rate LIKE 'high' order by pa.overall_rating desc;
 
 -- Ejercicio 6: Jugadores más veloces
+select 
+	league.name_league,
+  	match.season,
+  	player.player_name,
+from match m
+	JOIN league ON match.league_id = league.id
+  JOIN player_atributes pa on pa.
+	join player on player.player_api_id = m.home_player_1 or 
+				player.player_api_id = m.home_player_2 or 
+				player.player_api_id = m.home_player_3 or 
+				player.player_api_id = m.home_player_4 or 
+        player.player_api_id = m.home_player_5 or
+        player.player_api_id = m.home_player_6 or
+        player.player_api_id = m.home_player_7 or
+        player.player_api_id = m.home_player_8 or
+        player.player_api_id = m.home_player_9 or
+        player.player_api_id = m.home_player_10 or
+        player.player_api_id = m.home_player_11 or
+        player.player_api_id = m.away_player_1 or
+        player.player_api_id = m.away_player_2 or
+        player.player_api_id = m.away_player_3 or
+        player.player_api_id = m.away_player_4 or
+        player.player_api_id = m.away_player_5 or
+        player.player_api_id = m.away_player_6 or
+        player.player_api_id = m.away_player_7 or
+        player.player_api_id = m.away_player_8 or
+        player.player_api_id = m.away_player_9 or
+        player.player_api_id = m.away_player_10 or
+        player.player_api_id = m.away_player_11
+      
+
 
 -- Ejercicio 7: Características de los mejores equipos
 with mejores_equipos as (
@@ -207,3 +238,4 @@ order by buildup_play_speed desc,
         chance_creation_shooting desc ,
         defense_pressure desc, defense_agression desc
 ;
+

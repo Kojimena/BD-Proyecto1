@@ -15,7 +15,7 @@ df_league = pd.read_csv(r"proyecto1/data/Proyecto 1 - Datos/League.csv")
 df_player = pd.read_csv(r"proyecto1/data/Proyecto 1 - Datos/Player.csv", usecols=['id','player_api_id', 'player_name', 'player_fifa_api_id', 'birthday'])
 df_team = pd.read_csv(r"proyecto1/data/Proyecto 1 - Datos/Team.csv", usecols=['id','team_api_id', 'team_fifa_api_id', 'team_long_name', 'team_short_name'])
 df_team_attributes = pd.read_csv(r"proyecto1/data/Proyecto 1 - Datos/Team_Attributes.csv", usecols=['id', 'team_fifa_api_id', 'date', 'buildUpPlaySpeed', 'buildUpPlayPassing', 'chanceCreationPassing', 'chanceCreationCrossing', 'chanceCreationShooting', 'defencePressure', 'defenceAggression']) 
-df_player_attributes = pd.read_csv("proyecto1/data/Proyecto 1 - Datos/Player_Attributes.csv", usecols=['id', 'player_fifa_api_id', 'date', 'overall_rating', 'potential', 'attacking_work_rate', 'defensive_work_rate'])
+df_player_attributes = pd.read_csv("proyecto1/data/Proyecto 1 - Datos/Player_Attributes.csv", usecols=['id', 'player_fifa_api_id', 'date', 'overall_rating', 'potential', 'attacking_work_rate', 'defensive_work_rate', 'sprint_speed'])
 #df_match = pd.read_csv(r"proyecto1/data/Proyecto 1 - Datos/Match.csv", usecols= ['id','country_id','league_id','season','stage','date','match_api_id','home_team_api_id','away_team_api_id','home_team_goal','away_team_goal','B365H','B365D','B365A','BWH','BWD','BWA','IWH','IWD','IWA','LBH','LBD','LBA','PSH','PSD','PSA','WHH','WHD','WHA','SJH','SJD','SJA','VCH','VCD','VCA','GBH','GBD','GBA','BSH','BSD','BSA']) 
 df_match = pd.read_csv(r"proyecto1/data/Proyecto 1 - Datos/Match.csv", 
                        usecols=['id','country_id','league_id','season','stage','date','match_api_id',
@@ -140,7 +140,7 @@ for i in range(len(df_player_attributes.index)):
         continue
     else:
         conn.commit() """
-
+""" 
 
 # Ingreso de datos de match a Postgres
 for i in range(len(df_match.index)):
@@ -174,6 +174,46 @@ for i in range(len(df_match.index)):
             fila)
     except Exception as e:
         print(f"Error en la fila {i}: {fila}")
+        print(e)
+        conn.rollback()
+        continue
+    else:
+        conn.commit() """
+
+# Ingreso de datos de player_attributes a Postgres
+for i in range(len(df_player_attributes.index)):
+    fila = df_player_attributes.iloc[i].tolist()
+    # convertir todas las columnas a string
+    for j in range(len(fila)):
+        fila[j] = str(fila[j])
+
+    if fila[0] == 'nan':
+        continue
+    if fila[1] == 'nan':
+        continue
+    if fila[2] == 'nan':
+        continue
+    if fila[3] == 'nan':
+        continue
+    if fila[4] == 'nan':
+        continue
+    if fila[5] == 'nan':
+        continue
+    if fila[6] == 'nan':
+        continue
+    try:
+        fila[7] = int(float(fila[7]))
+    except Exception as e:
+        print(e)
+        pass
+    # convertir las columnas 3 y 4 a int
+    fila[3] = int(float(fila[3]))
+    fila[4] = int(float(fila[4]))
+
+    try:
+        cur.execute("INSERT INTO player_Atributes VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", fila)
+    except Exception as e:
+        print(f"Error en la fila {i}")
         print(e)
         conn.rollback()
         continue
