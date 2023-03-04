@@ -88,10 +88,10 @@ select
 	league.name_league,
   	match.season,
   	player.player_name,
-from match m
-	JOIN league ON match.league_id = league.id
-  JOIN player_atributes pa on pa.
-	join player on player.player_api_id = m.home_player_1 or 
+    from match m
+	JOIN league ON m.league_id = league.id
+    JOIN player_atributes pa on pa.id = 
+	JOIN player on player.player_api_id = m.home_player_1 or
 				player.player_api_id = m.home_player_2 or 
 				player.player_api_id = m.home_player_3 or 
 				player.player_api_id = m.home_player_4 or 
@@ -113,6 +113,7 @@ from match m
         player.player_api_id = m.away_player_9 or
         player.player_api_id = m.away_player_10 or
         player.player_api_id = m.away_player_11
+
       
 
 
@@ -164,7 +165,7 @@ with partidos as (
 )
 select team_long_name, victorias_t
 from team
-inner join partidos on team_api_id = ganador
+inner join partidos on team_api_id = ganador;
 
 --Ejercicio 8  Quiénes son los 3 países líderes según apuestas
 with apuestas as (
