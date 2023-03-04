@@ -79,7 +79,11 @@ order by promedio;
 -- Ejercicio 5: Mejores jugadores por liga y temporada
 
 select
-p.player_name, pa.attacking_work_rate , pa.deffensive_work_rate, pa.overall_rating from player p
+    p.player_name,
+    pa.attacking_work_rate ,
+    pa.deffensive_work_rate,
+    pa.overall_rating
+from player p
 inner join player_atributes pa on p.id = pa.id
 where pa.attacking_work_rate LIKE 'high' and pa.deffensive_work_rate LIKE 'high' order by pa.overall_rating desc;
 
