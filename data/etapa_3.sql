@@ -120,3 +120,34 @@ join atributes_2016 on atributes_2014.team_fifa_api_id= atributes_2016.team_fifa
 join team on team.team_fifa_api_id = atributes_2014.team_fifa_api_id
 order by buildUpPlaySpeed desc, buildUpPlayPassing desc, chanceCreationPassing desc, chanceCreationCrossing desc, chanceCreationShooting desc, defencePressure desc, defenceAggression desc
 ;
+
+--Equipos con jugadores más jovenes
+WITH jugadores AS (
+    SELECT
+        p.player_name,
+        p.birthday,
+        team.team_long_name,
+        match.season
+    FROM player p
+    JOIN match ON p.player_api_id = match.home_player_1 OR
+                  p.player_api_id = match.home_player_2 OR
+                  p.player_api_id = match.home_player_3 OR
+                  p.player_api_id = match.home_player_4 OR
+                  p.player_api_id = match.home_player_5 OR
+                  p.player_api_id = match.home_player_6 OR
+                  p.player_api_id = match.home_player_7 OR
+                  p.player_api_id = match.home_player_8 OR
+                  p.player_api_id = match.home_player_9 OR
+                  p.player_api_id = match.home_player_10 OR
+                  p.player_api_id = match.home_player_11
+    JOIN team ON match.home_team_api_id = team.team_api_id
+    GROUP BY p.player_name, team.team_long_name, match.season, p.birthday 
+)
+SELECT 
+    team_long_name, 
+    COUNT(*) AS jugadores_menores_35
+FROM jugadores
+WHERE DATE_PART('year', CURRENT_DATE) - DATE_PART('year', birthday) < 35
+GROUP BY team_long_name
+HAVING COUNT(*) > 0
+order by jugadores_menores_35 desc;
