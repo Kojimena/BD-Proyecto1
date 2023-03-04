@@ -176,3 +176,34 @@ from apuestas
 group by country
 order by promedio
 limit 5;
+
+--Ejercicio 8 Quiénes son los 3 países líderes según estadísticas
+with paises as (
+    select
+        team_long_name,
+        team_api_id,
+        team_fifa_api_id,
+        m.country_id
+
+    from team
+    join match m on team.team_api_id = m.away_team_api_id
+)
+select c.name, avg(ta.buildupplayspeed) as buildup_play_speed,
+    avg(ta.buildupplaypassing) as buildup_play_passing,
+    avg(ta.chancecreationpassing) as chance_creation_passing,
+    avg(ta.chancecreationcrossing) as chance_creation_crossing,
+    avg(ta.chancecreationshooting) as chance_creation_shooting,
+    avg(ta.defencepressure) as defense_pressure,
+    avg(ta.defenceaggression) as defense_agression
+
+from paises p
+join team_atributes ta on p.team_fifa_api_id = ta.team_fifa_api_id
+join country c on p.country_id = c.id
+group by c.name
+order by buildup_play_speed desc,
+        buildup_play_passing desc,
+        chance_creation_passing desc,
+        chance_creation_crossing desc ,
+        chance_creation_shooting desc ,
+        defense_pressure desc, defense_agression desc
+;
