@@ -95,3 +95,38 @@ group by partidos_2014.team_long_name, partidos_2014.cantidad_2014, partidos_201
 order by pendiente desc, cantidad_2016 desc
 limit 10;
 
+-- Mejora de diferencia de goles en las útlimas 3 temporadas
+
+with differencia_goles as (
+SELECT
+  league.name_league,
+  match.season,
+  team.team_long_name AS equipo,
+  SUM(CASE WHEN match.home_team_api_id = team.team_api_id THEN match.home_team_goal ELSE match.away_team_goal END) AS goles_a_favor,
+  SUM(CASE WHEN match.home_team_api_id = team.team_api_id THEN match.away_team_goal ELSE match.home_team_goal END) AS goles_en_contra,
+  SUM(CASE WHEN match.home_team_api_id = team.team_api_id THEN match.home_team_goal ELSE match.away_team_goal END) -
+    SUM(CASE WHEN match.home_team_api_id = team.team_api_id THEN match.away_team_goal ELSE match.home_team_goal END) AS diferencia_de_goles
+FROM match
+JOIN team ON match.home_team_api_id = team.team_api_id OR match.away_team_api_id = team.team_api_id
+JOIN league ON match.league_id = league.id
+GROUP BY league.name_league, match.season, team.team_long_name
+), diferencia_goles_2016 as (
+select * from differencia_goles where season = '2015/2016'
+), diferencia_goles_2015 as (
+select * from differencia_goles where season = '2014/2015'
+), diferencia_goles_2014 as (
+select * from differencia_goles where season = '2013/2014'
+)
+select
+    diferencia_goles_2014.equipo,
+    diferencia_goles_2014.diferencia_de_goles as diferencia_2014,
+    diferencia_goles_2015.diferencia_de_goles as diferencia_2015,
+    diferencia_goles_2016.diferencia_de_goles as diferencia_2016,
+    (diferencia_goles_2016.diferencia_de_goles - diferencia_goles_2014.diferencia_de_goles) / 2.0 as pendiente
+
+from diferencia_goles_2014
+join diferencia_goles_2015 on diferencia_goles_2014.equipo = diferencia_goles_2015.equipo
+join diferencia_goles_2016 on diferencia_goles_2014.equipo = diferencia_goles_2016.equipo
+order by pendiente desc, diferencia_2016 desc
+limit 10;
+--
