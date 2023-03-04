@@ -42,7 +42,7 @@ select equipo, season, diferencia_de_goles, rank() OVER (
     )
 from ranking;
 
--- Ejercicio 4 Promedio de probabilidades de todas las casas de apuesta por: temporada, liga, equipo
+-- Ejercicio 3 Promedio de probabilidades de todas las casas de apuesta por: temporada, liga, equipo
 with apuestas as (
 select
     name_league,
@@ -64,31 +64,28 @@ join league l on match.league_id = l.id
 group by name_league, season, team_long_name
 order by team_long_name
 )
+-- Ejercicio 3
+-- select *
+-- from apuestas
+-- where b365 is not null and bw is not null and iw is not null and lb is not null and ps is not null and wa is not null
+-- and sj is not null and wa is not null and vc is not null and gb is not null and bs is not null;
 
-select *
-from apuestas
-where b365 is not null and bw is not null and iw is not null and lb is not null and ps is not null and wa is not null
-and sj is not null and wa is not null and vc is not null and gb is not null and bs is not null;
-
--- Ejercicio 5
+-- Ejercicio 4
 select team_long_name, avg((b365 + bw + iw + lb + ps + wa + sj + vc + gb + bs)/10) as promedio
 from apuestas
 group by team_long_name
 order by promedio;
 
--- Mejores jugadores por liga y temporada
+-- Ejercicio 5: Mejores jugadores por liga y temporada
+
 select
-    player_name,
-    season,
-    name_league
-from match
-join league l on l.id = match.league_id
-join player on player_fifa_api_id
+p.player_name, pa.attacking_work_rate , pa.deffensive_work_rate, pa.overall_rating from player p
+inner join player_atributes pa on p.id = pa.id
+where pa.attacking_work_rate LIKE 'high' and pa.deffensive_work_rate LIKE 'high' order by pa.overall_rating desc;
 
--- Faltas cometidas
--- <foulcommit><value><event_incident_typefk>641</event_incident_typefk><elapsed>3</elapsed><player2>30853</player2><subtype>advantage</subtype><player1>75489</player1><sortorder>0</sortorder><team>9825</team><n>4</n><type>foulcommit</type><id>2072042</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>3</elapsed><player2>30853</player2><player1>23678</player1><sortorder>1</sortorder><team>9825</team><n>208</n><type>foulcommit</type><id>2072045</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>13</elapsed><player2>196386</player2><player1>30675</player1><sortorder>1</sortorder><team>8455</team><n>213</n><type>foulcommit</type><id>2072104</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>21</elapsed><player2>30627</player2><player1>26005</player1><sortorder>0</sortorder><team>9825</team><n>221</n><type>foulcommit</type><id>2072151</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>30</elapsed><player2>30675</player2><player1>31435</player1><sortorder>0</sortorder><team>9825</team><n>231</n><type>foulcommit</type><id>2072206</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>36</elapsed><player2>31013</player2><player1>30627</player1><sortorder>0</sortorder><team>8455</team><n>236</n><type>foulcommit</type><id>2072242</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>43</event_incident_typefk><elapsed>41</elapsed><player1>212470</player1><sortorder>1</sortorder><team>8455</team><n>241</n><type>foulcommit</type><id>2072271</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>44</elapsed><player2>30679</player2><player1>196386</player1><sortorder>4</sortorder><team>9825</team><n>249</n><type>foulcommit</type><id>2072294</id></value><value><stats><foulscommitted>1</foulscommitted></stats><elapsed_plus>1</elapsed_plus><event_incident_typefk>37</event_incident_typefk><elapsed>45</elapsed><player2>23783</player2><player1>30843</player1><sortorder>1</sortorder><team>9825</team><n>253</n><type>foulcommit</type><id>2072306</id></value><value><stats><foulscommitted>1</foulscommitted></stats><elapsed_plus>1</elapsed_plus><event_incident_typefk>37</event_incident_typefk><elapsed>45</elapsed><player2>196386</player2><player1>51553</player1><sortorder>5</sortorder><team>8455</team><n>254</n><type>foulcommit</type><id>2072311</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>48</elapsed><player2>30679</player2><player1>23678</player1><sortorder>0</sortorder><team>9825</team><n>259</n><type>foulcommit</type><id>2072401</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>49</elapsed><player2>30843</player2><player1>30679</player1><sortorder>2</sortorder><team>8455</team><n>261</n><type>foulcommit</type><id>2072409</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>50</elapsed><player2>30675</player2><player1>30843</player1><sortorder>0</sortorder><team>9825</team><n>263</n><type>foulcommit</type><id>2072417</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>210</event_incident_typefk><elapsed>54</elapsed><subtype>serious_foul</subtype><player1>23783</player1><sortorder>3</sortorder><team>8455</team><n>269</n><type>foulcommit</type><id>2072448</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>63</elapsed><player2>46010</player2><player1>37950</player1><sortorder>0</sortorder><team>9825</team><n>279</n><type>foulcommit</type><id>2072498</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>63</elapsed><player2>30843</player2><player1>23783</player1><sortorder>1</sortorder><team>8455</team><n>275</n><type>foulcommit</type><id>2072499</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>66</elapsed><player2>30853</player2><player1>23678</player1><sortorder>0</sortorder><team>9825</team><n>277</n><type>foulcommit</type><id>2072517</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>69</elapsed><player2>46010</player2><player1>37950</player1><sortorder>1</sortorder><team>9825</team><n>289</n><type>foulcommit</type><id>2072536</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>70</elapsed><player2>26111</player2><player1>31906</player1><sortorder>1</sortorder><team>8455</team><n>285</n><type>foulcommit</type><id>2072544</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>72</elapsed><player2>30843</player2><player1>25925</player1><sortorder>2</sortorder><team>8455</team><n>288</n><type>foulcommit</type><id>2072556</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>75</elapsed><player2>30853</player2><player1>26111</player1><sortorder>1</sortorder><team>9825</team><n>291</n><type>foulcommit</type><id>2072570</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>76</elapsed><player2>30675</player2><player1>27277</player1><sortorder>0</sortorder><team>9825</team><n>290</n><type>foulcommit</type><id>2072576</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>77</elapsed><player2>46539</player2><player1>32345</player1><sortorder>1</sortorder><team>8455</team><n>295</n><type>foulcommit</type><id>2072584</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>210</event_incident_typefk><elapsed>81</elapsed><subtype>serious_foul</subtype><player1>38834</player1><sortorder>2</sortorder><team>8455</team><n>298</n><type>foulcommit</type><id>2072610</id></value></foulcommit>
+-- Ejercicio 6: Jugadores más veloces
 
--- Características de los mejores equipos
+-- Ejercicio 7: Características de los mejores equipos
 with mejores_equipos as (
     select ganador, count(*) as victorias_totales
     from (
@@ -158,7 +155,19 @@ select
 from match
 join team on team_api_id = match.home_team_api_id or team_api_id = match.away_team_api_id
 join league l on match.league_id = l.id
-join country c  on match.country_id = c.id 
+join country c  on match.country_id = c.id
+where
+    b365h is not null and b365a is not null and
+    bwh is not null and bwa is not null and
+    iwh is not null and iwa is not null and
+    lbh is not null and lba is not null and
+    psh is not null and psa is not null and
+    whh is not null and wha is not null and
+    sjh is not null and sja is not null and
+    vch is not null and vca is not null and
+    gbh is not null and gba is not null and
+    bsh is not null and bsa is not null
+
 group by c.name, name_league, season, team_long_name
 order by team_long_name
 ) 
@@ -166,5 +175,4 @@ select country, avg((b365 + bw + iw + lb + ps + wa + sj + vc + gb + bs)/10) as p
 from apuestas
 group by country
 order by promedio
-limit 3;
-
+limit 5;

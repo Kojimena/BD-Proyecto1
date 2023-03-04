@@ -3,6 +3,7 @@
 drop table player_Atributes;
 drop table player;
 drop table match;
+delete from match;
 alter table player add constraint player_api_id_u unique (player_api_id);
 alter table player drop constraint player_api_id_u;
 alter table player
