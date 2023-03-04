@@ -3,15 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.45">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <Grants>1||-9223372036854775808|c|G
-1||10|c|G
-1||10|C|G
-1||10|T|G
-4||-9223372036854775808|c|G
-4||10|c|G
-4||10|C|G
-4||10|T|G</Grants>
-      <IntrospectionStateNumber>401478</IntrospectionStateNumber>
+      <IntrospectionStateNumber>427463</IntrospectionStateNumber>
       <ServerVersion>15.2</ServerVersion>
       <StartupTime>1677892038</StartupTime>
       <TimeZones>true ACDT
@@ -1408,7 +1400,7 @@ false posixrules
 13350||10|C|G
 13350||-9223372036854775808|U|G
 13350||10|U|G</Grants>
-      <IntrospectionStateNumber>401478</IntrospectionStateNumber>
+      <IntrospectionStateNumber>427463</IntrospectionStateNumber>
       <ObjectId>17288</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4862,7 +4854,7 @@ false posixrules
     <schema id="271" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>401478</IntrospectionStateNumber>
+      <IntrospectionStateNumber>427463</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>517</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4892,8 +4884,8 @@ false posixrules
       <OwnerName>postgres</OwnerName>
     </table>
     <table id="276" parent="271" name="player_atributes">
-      <ObjectId>17432</ObjectId>
-      <StateNumber>18074</StateNumber>
+      <ObjectId>19219</ObjectId>
+      <StateNumber>427462</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
@@ -5776,109 +5768,115 @@ pg_catalog</CollationParentNames>
       <DasType>varchar(30)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>18074</StateNumber>
+      <StateNumber>427462</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="393" parent="276" name="player_fifa_api_id">
       <DasType>varchar(30)|0s</DasType>
       <Position>2</Position>
-      <StateNumber>18074</StateNumber>
+      <StateNumber>427462</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="394" parent="276" name="date_reg">
       <DasType>date|0s</DasType>
       <Position>3</Position>
-      <StateNumber>18074</StateNumber>
+      <StateNumber>427462</StateNumber>
       <TypeId>1082</TypeId>
     </column>
     <column id="395" parent="276" name="overall_rating">
       <DasType>integer|0s</DasType>
       <Position>4</Position>
-      <StateNumber>18074</StateNumber>
+      <StateNumber>427462</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="396" parent="276" name="potential">
       <DasType>integer|0s</DasType>
       <Position>5</Position>
-      <StateNumber>18074</StateNumber>
+      <StateNumber>427462</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="397" parent="276" name="attacking_work_rate">
       <DasType>varchar(30)|0s</DasType>
       <Position>6</Position>
-      <StateNumber>18074</StateNumber>
+      <StateNumber>427462</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="398" parent="276" name="deffensive_work_rate">
       <DasType>varchar(30)|0s</DasType>
       <Position>7</Position>
-      <StateNumber>18074</StateNumber>
+      <StateNumber>427462</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <foreign-key id="399" parent="276" name="player_atributes_player_fifa_api_id_fkey">
+    <column id="399" parent="276" name="sprint_speed">
+      <DasType>integer|0s</DasType>
+      <Position>8</Position>
+      <StateNumber>427462</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="400" parent="276" name="player_atributes_player_fifa_api_id_fkey">
       <ColNames>player_fifa_api_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17437</ObjectId>
+      <ObjectId>19224</ObjectId>
       <RefColNames>player_fifa_api_id</RefColNames>
       <RefColPositions>4</RefColPositions>
-      <StateNumber>18074</StateNumber>
+      <StateNumber>427462</StateNumber>
       <RefTableId>17412</RefTableId>
       <RefTableName>player</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <index id="400" parent="276" name="player_atributes_pkey">
+    <index id="401" parent="276" name="player_atributes_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17435</ObjectId>
+      <ObjectId>19222</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>18074</StateNumber>
+      <StateNumber>427462</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="401" parent="276" name="player_atributes_pkey">
+    <key id="402" parent="276" name="player_atributes_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17436</ObjectId>
+      <ObjectId>19223</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>18074</StateNumber>
-      <UnderlyingIndexId>17435</UnderlyingIndexId>
+      <StateNumber>427462</StateNumber>
+      <UnderlyingIndexId>19222</UnderlyingIndexId>
     </key>
-    <column id="402" parent="277" name="id">
+    <column id="403" parent="277" name="id">
       <DasType>varchar(30)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>1542</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="403" parent="277" name="team_api_id">
+    <column id="404" parent="277" name="team_api_id">
       <DasType>varchar(30)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>1542</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="404" parent="277" name="team_fifa_api_id">
+    <column id="405" parent="277" name="team_fifa_api_id">
       <DasType>varchar(30)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>1542</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="405" parent="277" name="team_long_name">
+    <column id="406" parent="277" name="team_long_name">
       <DasType>varchar(30)|0s</DasType>
       <Position>4</Position>
       <StateNumber>1542</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="406" parent="277" name="team_short_name">
+    <column id="407" parent="277" name="team_short_name">
       <DasType>varchar(30)|0s</DasType>
       <Position>5</Position>
       <StateNumber>1542</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="407" parent="277" name="team_pkey">
+    <index id="408" parent="277" name="team_pkey">
       <ColNames>id
 team_api_id
 team_fifa_api_id</ColNames>
@@ -5898,7 +5896,7 @@ pg_catalog</CollationParentNames>
 100
 100</CollationIds>
     </index>
-    <index id="408" parent="277" name="team_team_api_id_key">
+    <index id="409" parent="277" name="team_team_api_id_key">
       <ColNames>team_api_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17373</ObjectId>
@@ -5909,7 +5907,7 @@ pg_catalog</CollationParentNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <index id="409" parent="277" name="team_team_fifa_api_id_key">
+    <index id="410" parent="277" name="team_team_fifa_api_id_key">
       <ColNames>team_fifa_api_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17375</ObjectId>
@@ -5920,87 +5918,87 @@ pg_catalog</CollationParentNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="410" parent="277" name="team_pkey">
+    <key id="411" parent="277" name="team_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17372</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1542</StateNumber>
       <UnderlyingIndexId>17371</UnderlyingIndexId>
     </key>
-    <key id="411" parent="277" name="team_team_api_id_key">
+    <key id="412" parent="277" name="team_team_api_id_key">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17374</ObjectId>
       <StateNumber>1542</StateNumber>
       <UnderlyingIndexId>17373</UnderlyingIndexId>
     </key>
-    <key id="412" parent="277" name="team_team_fifa_api_id_key">
+    <key id="413" parent="277" name="team_team_fifa_api_id_key">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17376</ObjectId>
       <StateNumber>1542</StateNumber>
       <UnderlyingIndexId>17375</UnderlyingIndexId>
     </key>
-    <column id="413" parent="278" name="id">
+    <column id="414" parent="278" name="id">
       <DasType>varchar(30)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>1544</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="414" parent="278" name="team_fifa_api_id">
+    <column id="415" parent="278" name="team_fifa_api_id">
       <DasType>varchar(30)|0s</DasType>
       <Position>2</Position>
       <StateNumber>1544</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="415" parent="278" name="date_reg">
+    <column id="416" parent="278" name="date_reg">
       <DasType>date|0s</DasType>
       <Position>3</Position>
       <StateNumber>1544</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="416" parent="278" name="buildupplayspeed">
+    <column id="417" parent="278" name="buildupplayspeed">
       <DasType>integer|0s</DasType>
       <Position>4</Position>
       <StateNumber>1544</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="417" parent="278" name="buildupplaypassing">
+    <column id="418" parent="278" name="buildupplaypassing">
       <DasType>integer|0s</DasType>
       <Position>5</Position>
       <StateNumber>1544</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="418" parent="278" name="chancecreationpassing">
+    <column id="419" parent="278" name="chancecreationpassing">
       <DasType>integer|0s</DasType>
       <Position>6</Position>
       <StateNumber>1544</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="419" parent="278" name="chancecreationcrossing">
+    <column id="420" parent="278" name="chancecreationcrossing">
       <DasType>integer|0s</DasType>
       <Position>7</Position>
       <StateNumber>1544</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="420" parent="278" name="chancecreationshooting">
+    <column id="421" parent="278" name="chancecreationshooting">
       <DasType>integer|0s</DasType>
       <Position>8</Position>
       <StateNumber>1544</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="421" parent="278" name="defencepressure">
+    <column id="422" parent="278" name="defencepressure">
       <DasType>integer|0s</DasType>
       <Position>9</Position>
       <StateNumber>1544</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="422" parent="278" name="defenceaggression">
+    <column id="423" parent="278" name="defenceaggression">
       <DasType>integer|0s</DasType>
       <Position>10</Position>
       <StateNumber>1544</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="423" parent="278" name="team_atributes_team_fifa_api_id_fkey">
+    <foreign-key id="424" parent="278" name="team_atributes_team_fifa_api_id_fkey">
       <ColNames>team_fifa_api_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17382</ObjectId>
@@ -6011,7 +6009,7 @@ pg_catalog</CollationParentNames>
       <RefTableName>team</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <index id="424" parent="278" name="team_atributes_pkey">
+    <index id="425" parent="278" name="team_atributes_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17380</ObjectId>
@@ -6023,7 +6021,7 @@ pg_catalog</CollationParentNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="425" parent="278" name="team_atributes_pkey">
+    <key id="426" parent="278" name="team_atributes_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17381</ObjectId>
       <Primary>1</Primary>

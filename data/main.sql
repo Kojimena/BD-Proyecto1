@@ -50,6 +50,7 @@ create table player_Atributes(
     potential integer,
     attacking_work_rate varchar(30),
     deffensive_work_rate varchar(30),
+    sprint_speed int,
     foreign key (player_fifa_api_id) references player(player_fifa_api_id)
 );
 
