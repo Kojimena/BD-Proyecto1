@@ -86,33 +86,36 @@ where pa.attacking_work_rate LIKE 'high' and pa.deffensive_work_rate LIKE 'high'
 -- Ejercicio 6: Jugadores más veloces
 select 
 	league.name_league,
-  	match.season,
-  	player.player_name,
+  	p.player_name,
+    avg(pa.sprint_speed) as avg_speed
     from match m
 	JOIN league ON m.league_id = league.id
-    JOIN player_atributes pa on pa.id =
-	JOIN player on player.player_api_id = m.home_player_1 or
-				player.player_api_id = m.home_player_2 or 
-				player.player_api_id = m.home_player_3 or 
-				player.player_api_id = m.home_player_4 or 
-        player.player_api_id = m.home_player_5 or
-        player.player_api_id = m.home_player_6 or
-        player.player_api_id = m.home_player_7 or
-        player.player_api_id = m.home_player_8 or
-        player.player_api_id = m.home_player_9 or
-        player.player_api_id = m.home_player_10 or
-        player.player_api_id = m.home_player_11 or
-        player.player_api_id = m.away_player_1 or
-        player.player_api_id = m.away_player_2 or
-        player.player_api_id = m.away_player_3 or
-        player.player_api_id = m.away_player_4 or
-        player.player_api_id = m.away_player_5 or
-        player.player_api_id = m.away_player_6 or
-        player.player_api_id = m.away_player_7 or
-        player.player_api_id = m.away_player_8 or
-        player.player_api_id = m.away_player_9 or
-        player.player_api_id = m.away_player_10 or
-        player.player_api_id = m.away_player_11
+	JOIN player p on p.player_api_id = m.home_player_1 or
+				p.player_api_id = m.home_player_2 or
+				p.player_api_id = m.home_player_3 or
+				p.player_api_id = m.home_player_4 or
+        p.player_api_id = m.home_player_5 or
+        p.player_api_id = m.home_player_6 or
+        p.player_api_id = m.home_player_7 or
+        p.player_api_id = m.home_player_8 or
+        p.player_api_id = m.home_player_9 or
+        p.player_api_id = m.home_player_10 or
+        p.player_api_id = m.home_player_11 or
+        p.player_api_id = m.away_player_1 or
+        p.player_api_id = m.away_player_2 or
+        p.player_api_id = m.away_player_3 or
+        p.player_api_id = m.away_player_4 or
+        p.player_api_id = m.away_player_5 or
+        p.player_api_id = m.away_player_6 or
+        p.player_api_id = m.away_player_7 or
+        p.player_api_id = m.away_player_8 or
+        p.player_api_id = m.away_player_9 or
+        p.player_api_id = m.away_player_10 or
+        p.player_api_id = m.away_player_11
+    JOIN player_atributes pa on pa.player_fifa_api_id = p.player_fifa_api_id
+group by name_league, p.player_name
+order by avg_speed desc limit 10;
+
 
       
 
