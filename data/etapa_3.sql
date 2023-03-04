@@ -1,8 +1,5 @@
-select *
-from match
-where date_game > '2010-01-01'::date;
-
--- Cantidad de juegos ganados
+-- Etapa 3
+-- Mejora de partidos ganados por equipo en las últimas 3 temporadas
 with partidos as (
     select ganador, date_game, match.id, match.season
     from (
@@ -90,7 +87,6 @@ select
     partidos_2014.cantidad_2014,
     partidos_2015.cantidad_2015,
     partidos_2016.cantidad_2016,
-    -- calcular la pendiente de la cantidad de partidos ganados
     (partidos_2016.cantidad_2016 - partidos_2014.cantidad_2014) / 2.0 as pendiente
 from partidos_2014
 join partidos_2015 on partidos_2014.team_long_name = partidos_2015.team_long_name
@@ -98,3 +94,4 @@ join partidos_2016 on partidos_2014.team_long_name = partidos_2016.team_long_nam
 group by partidos_2014.team_long_name, partidos_2014.cantidad_2014, partidos_2015.cantidad_2015, partidos_2016.cantidad_2016
 order by pendiente desc, cantidad_2016 desc
 limit 10;
+
