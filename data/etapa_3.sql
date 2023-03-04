@@ -129,4 +129,37 @@ join diferencia_goles_2015 on diferencia_goles_2014.equipo = diferencia_goles_20
 join diferencia_goles_2016 on diferencia_goles_2014.equipo = diferencia_goles_2016.equipo
 order by pendiente desc, diferencia_2016 desc
 limit 10;
---
+
+-- Equipos con los mejores aumentos de atributos en las últimas 3 temporadas
+with atributes_2014 as (
+    select *
+    from team_atributes
+    -- 2013/2014: 17 ago 2013 – 18 may 2014
+    where date_reg >= '2013-08-17' and date_reg <= '2014-05-18'
+), atributes_2015 as (
+    select *
+    from team_atributes
+    -- 2014/2015: 16 ago 2014 – 24 may 2015
+    where date_reg >= '2014-08-16' and date_reg <= '2015-05-24'
+), atributes_2016 as (
+    select *
+    from team_atributes
+    -- 2015/2016: 15 ago 2015 – 22 may 2016
+    where date_reg >= '2015-08-15' and date_reg <= '2016-05-22'
+)
+
+select
+    team_long_name,
+    atributes_2014.buildUpPlaySpeed - atributes_2016.buildUpPlaySpeed as buildUpPlaySpeed,
+    atributes_2014.buildUpPlayPassing - atributes_2016.buildUpPlayPassing as buildUpPlayPassing,
+    atributes_2014.chanceCreationPassing - atributes_2016.chanceCreationPassing as chanceCreationPassing,
+    atributes_2014.chanceCreationCrossing - atributes_2016.chanceCreationCrossing as chanceCreationCrossing,
+    atributes_2014.chanceCreationShooting - atributes_2016.chanceCreationShooting as chanceCreationShooting,
+    atributes_2014.defencePressure - atributes_2016.defencePressure as defencePressure,
+    atributes_2014.defenceAggression - atributes_2016.defenceAggression as defenceAggression
+from atributes_2014
+join atributes_2015 on atributes_2014.team_fifa_api_id = atributes_2015.team_fifa_api_id
+join atributes_2016 on atributes_2014.team_fifa_api_id= atributes_2016.team_fifa_api_id
+join team on team.team_fifa_api_id = atributes_2014.team_fifa_api_id
+order by buildUpPlaySpeed desc, buildUpPlayPassing desc, chanceCreationPassing desc, chanceCreationCrossing desc, chanceCreationShooting desc, defencePressure desc, defenceAggression desc
+;
