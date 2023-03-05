@@ -272,9 +272,11 @@ LEFT JOIN team home_team ON home_team.team_api_id = match.home_team_api_id
 LEFT JOIN team away_team ON away_team.team_api_id = match.away_team_api_id
 where player_name = 'Cristiano Ronaldo';
 
--- Mejores equipos históricamente
+-- Mejores equipos en las últimas 3 temporadas
 with mejores_equipos as (
-    select ganador, count(*) as victorias_totales
+    select
+        ganador,
+        count(*) as victorias_totales
     from (
         select match.id,
                case
@@ -282,6 +284,7 @@ with mejores_equipos as (
                    when (match.away_team_goal - match.home_team_goal) > 0 then away_team_api_id
         end as ganador
         from match
+        where season in ('2013/2014', '2014/2015', '2015/2016')
          ) victorias
     where ganador is not null
     group by ganador
