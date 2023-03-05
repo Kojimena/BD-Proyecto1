@@ -146,12 +146,12 @@ WITH jugadores AS (
 )
 SELECT
     team_long_name,
-    COUNT(*) AS jugadores_menores_35
+    COUNT(*) AS jugadores_menores_28
 FROM jugadores
-WHERE DATE_PART('year', CURRENT_DATE) - DATE_PART('year', birthday) < 35
+WHERE DATE_PART('year', CURRENT_DATE) - DATE_PART('year', birthday) < 28
 GROUP BY team_long_name
 HAVING COUNT(*) > 0
-order by jugadores_menores_35 desc;
+order by jugadores_menores_28 desc;
 
 --Equipos con mejores jugadores
 SELECT 
