@@ -152,3 +152,30 @@ WHERE DATE_PART('year', CURRENT_DATE) - DATE_PART('year', birthday) < 35
 GROUP BY team_long_name
 HAVING COUNT(*) > 0
 order by jugadores_menores_35 desc;
+
+--Equipos con mejores jugadores
+SELECT 
+    team.team_long_name, 
+    AVG(pa.potential) as avg_potential, 
+    AVG(pa.overall_rating) as avg_rating
+FROM match 
+JOIN team ON match.home_team_api_id = team.team_api_id 
+JOIN player p ON p.player_api_id IN (
+            match.home_player_1, 
+            match.home_player_2, 
+            match.home_player_3, 
+            match.home_player_4, 
+            match.home_player_5, 
+            match.home_player_6, 
+            match.home_player_7, 
+            match.home_player_8, 
+            match.home_player_9, 
+            match.home_player_10, 
+            match.home_player_11)
+JOIN player_atributes pa ON pa.player_fifa_api_id = p.player_fifa_api_id
+WHERE match.season IN ('2015/2016', '2014/2015', '2013/2014')
+GROUP BY team.team_long_name
+ORDER BY avg_potential DESC, avg_rating DESC;
+;
+
+
