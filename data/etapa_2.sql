@@ -67,9 +67,7 @@ order by team_long_name
 --Ejercicio 3
 select *
 from apuestas
--- no incluir fila si todas sus columnas son null
 where b365 is not null or bw is not null or iw is not null or lb is not null or ps is not null or wa is not null or sj is not null or vc is not null or gb is not null or bs is not null
-and season = '2015/2016'
 ;
 
 -- -- Ejercicio 4
