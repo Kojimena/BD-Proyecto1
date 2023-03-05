@@ -235,4 +235,39 @@ where apuestas_2016.avg_apuesta != 0 and apuestas_2014.avg_apuesta != 0
 order by pendiente desc, apuestas_2016.avg_apuesta
 limit 10;
 
-
+-- Jugadores y a que equipo pertenecen
+select distinct
+    player.player_name,
+    match.season,
+    case
+        when player_api_id in (match.home_player_1, match.home_player_2, match.home_player_3, match.home_player_4, match.home_player_5, match.home_player_6, match.home_player_7, match.home_player_8, match.home_player_9, match.home_player_10, match.home_player_11) then home_team.team_long_name
+        when player_api_id in (match.away_player_1, match.away_player_2, match.away_player_3, match.away_player_4, match.away_player_5, match.away_player_6, match.away_player_7, match.away_player_8, match.away_player_9, match.away_player_10, match.away_player_11) then away_team.team_long_name
+    end as team_name
+from match
+join player ON player.player_api_id IN (
+    match.home_player_1,
+    match.home_player_2,
+    match.home_player_3,
+    match.home_player_4,
+    match.home_player_5,
+    match.home_player_6,
+    match.home_player_7,
+    match.home_player_8,
+    match.home_player_9,
+    match.home_player_10,
+    match.home_player_11,
+    match.away_player_1,
+    match.away_player_2,
+    match.away_player_3,
+    match.away_player_4,
+    match.away_player_5,
+    match.away_player_6,
+    match.away_player_7,
+    match.away_player_8,
+    match.away_player_9,
+    match.away_player_10,
+    match.away_player_11
+)
+LEFT JOIN team home_team ON home_team.team_api_id = match.home_team_api_id
+LEFT JOIN team away_team ON away_team.team_api_id = match.away_team_api_id
+where player_name = 'Cristiano Ronaldo';
