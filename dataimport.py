@@ -140,7 +140,7 @@ for i in range(len(df_player_attributes.index)):
         continue
     else:
         conn.commit() """
-""" 
+
 
 # Ingreso de datos de match a Postgres
 for i in range(len(df_match.index)):
@@ -165,9 +165,12 @@ for i in range(len(df_match.index)):
                 fila[k] = int(fila[k])
         except:
             pass
-    for j in range(35, 63):
-        if np.isnan(fila[j]):
-            fila[j] = None
+    for j in range(35, 64):
+        try:
+            if np.isnan(fila[j]):
+                fila[j] = None
+        except:
+            pass
     try:
         cur.execute(
             "INSERT INTO match VALUES (%s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s)",
@@ -178,9 +181,9 @@ for i in range(len(df_match.index)):
         conn.rollback()
         continue
     else:
-        conn.commit() """
+        conn.commit() 
 
-# Ingreso de datos de player_attributes a Postgres
+""" # Ingreso de datos de player_attributes a Postgres
 for i in range(len(df_player_attributes.index)):
     fila = df_player_attributes.iloc[i].tolist()
     # convertir todas las columnas a string
@@ -220,7 +223,7 @@ for i in range(len(df_player_attributes.index)):
     else:
         conn.commit()
 
-
+ """
 
 cur.close()  # Cierre del cursor
 
