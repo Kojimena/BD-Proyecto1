@@ -271,3 +271,34 @@ join player ON player.player_api_id IN (
 LEFT JOIN team home_team ON home_team.team_api_id = match.home_team_api_id
 LEFT JOIN team away_team ON away_team.team_api_id = match.away_team_api_id
 where player_name = 'Cristiano Ronaldo';
+
+-- Mejores equipos históricamente
+with mejores_equipos as (
+    select ganador, count(*) as victorias_totales
+    from (
+        select match.id,
+               case
+                   when (match.home_team_goal - match.away_team_goal) > 0 then home_team_api_id
+                   when (match.away_team_goal - match.home_team_goal) > 0 then away_team_api_id
+        end as ganador
+        from match
+         ) victorias
+    where ganador is not null
+    group by ganador
+    order by victorias_totales desc
+)
+select
+    team_long_name,
+    victorias_totales,
+    avg(ta.buildupplayspeed) as buildup_play_speed,
+    avg(buildupplaypassing) as buildup_play_passing,
+    avg(chancecreationpassing) as chance_creation_passing,
+    avg(chancecreationcrossing) as chance_creation_crossing,
+    avg(chancecreationshooting) as chance_creation_shooting,
+    avg(defencepressure) as defense_pressure,
+    avg(defenceaggression) as defense_agression
+from team
+join mejores_equipos on team_api_id = ganador
+join team_atributes ta on team.team_fifa_api_id = ta.team_fifa_api_id
+group by team_long_name, victorias_totales
+order by victorias_totales desc limit 10;
