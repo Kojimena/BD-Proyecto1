@@ -64,17 +64,17 @@ join league l on match.league_id = l.id
 group by name_league, season, team_long_name
 order by team_long_name
 )
--- Ejercicio 3
--- select *
--- from apuestas
--- where b365 is not null and bw is not null and iw is not null and lb is not null and ps is not null and wa is not null
--- and sj is not null and wa is not null and vc is not null and gb is not null and bs is not null;
-
--- Ejercicio 4
-select team_long_name, avg((b365 + bw + iw + lb + ps + wa + sj + vc + gb + bs)/10) as promedio
+--Ejercicio 3
+select *
 from apuestas
-group by team_long_name
-order by promedio;
+where b365 is not null or bw is not null or iw is not null or lb is not null or ps is not null or wa is not null or sj is not null or vc is not null or gb is not null or bs is not null
+;
+
+-- -- Ejercicio 4
+-- select team_long_name, avg((b365 + bw + iw + lb + ps + wa + sj + vc + gb + bs)/10) as promedio
+-- from apuestas
+-- group by team_long_name
+-- order by promedio;
 
 -- Ejercicio 5: Mejores jugadores por liga y temporada
 select
