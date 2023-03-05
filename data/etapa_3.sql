@@ -175,7 +175,7 @@ JOIN player p ON p.player_api_id IN (
 JOIN player_atributes pa ON pa.player_fifa_api_id = p.player_fifa_api_id
 WHERE match.season IN ('2015/2016', '2014/2015', '2013/2014')
 GROUP BY team.team_long_name
-ORDER BY avg_potential DESC, avg_rating DESC;
-;
+ORDER BY avg_potential DESC, avg_rating DESC
+limit 10;
 
 
