@@ -77,25 +77,49 @@ where b365 is not null or bw is not null or iw is not null or lb is not null or 
 -- order by promedio;
 
 -- Ejercicio 5: Mejores jugadores por liga y temporada
-select
-    l.name_league,
-    season,
-    p.player_name,
-    pa.attacking_work_rate ,
-    pa.deffensive_work_rate,
-    avg(pa.overall_rating) as overall_rating_p,
-    avg(pa.sprint_speed) as sprint_speed_p
-from player p
-inner join player_atributes pa on pa.player_fifa_api_id = p.player_fifa_api_id
-inner join match m on m.home_player_1 = p.id or m.home_player_2 = p.id or 
-m.home_player_3 = p.id or m.home_player_4 = p.id or m.home_player_5 = p.id or 
-m.home_player_6 = p.id or m.home_player_7 = p.id or m.home_player_8 = p.id or m.home_player_9 = p.id or m.home_player_10 = p.id or m.home_player_11 = p.id
-inner join league l on m.league_id = l.id
-where pa.attacking_work_rate LIKE 'high' and pa.deffensive_work_rate LIKE 'high'
-group by p.player_name, pa.attacking_work_rate, pa.deffensive_work_rate, l.name_league, season;
+with rank_players as (
+    select
+        l.name_league,
+        season,
+        p.player_name,
+        case
+            when pa.attacking_work_rate = 'high' then 3
+            when pa.attacking_work_rate = 'medium' then 2
+            when pa.attacking_work_rate = 'low' then 1
+        end as attacking_work_rate,
+        case
+            when pa.deffensive_work_rate = 'high' then 3
+            when pa.deffensive_work_rate = 'medium' then 2
+            when pa.deffensive_work_rate = 'low' then 1
+        end as deffensive_work_rate,
+        avg(pa.overall_rating) as overall_rating_p,
+        avg(pa.potential) as potential_p,
+        avg(pa.sprint_speed) as sprint_speed_p,
+        row_number() over (partition by l.name_league, season order by avg(pa.overall_rating) desc, attacking_work_rate desc, deffensive_work_rate desc, avg(sprint_speed) desc, avg(potential) desc) as row_num
+    from player p
+    inner join player_atributes pa on pa.player_fifa_api_id = p.player_fifa_api_id
+    inner join match m on p.player_api_id = m.home_player_1 or
+                    p.player_api_id = m.home_player_2 or
+                    p.player_api_id = m.home_player_3 or
+                    p.player_api_id = m.home_player_4 or
+            p.player_api_id = m.home_player_5 or
+            p.player_api_id = m.home_player_6 or
+            p.player_api_id = m.home_player_7 or
+            p.player_api_id = m.home_player_8 or
+            p.player_api_id = m.home_player_9 or
+            p.player_api_id = m.home_player_10 or
+            p.player_api_id = m.home_player_11
+    inner join league l on m.league_id = l.id
+    -- where pa.attacking_work_rate LIKE 'high' or pa.deffensive_work_rate LIKE 'high'
+    group by p.player_name, pa.attacking_work_rate, pa.deffensive_work_rate, l.name_league, season
+)
+select *
+from rank_players
+where row_num = 1
+order by rank_players.name_league, season desc, overall_rating_p desc, attacking_work_rate desc, deffensive_work_rate desc, sprint_speed_p desc, potential_p desc;
 
 -- Ejercicio 6: Jugadores más veloces
-select 
+select
 	league.name_league,
   	p.player_name,
     avg(pa.sprint_speed) as avg_speed
