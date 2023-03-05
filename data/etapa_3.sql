@@ -178,4 +178,61 @@ GROUP BY team.team_long_name
 ORDER BY avg_potential DESC, avg_rating DESC
 limit 10;
 
+with apuestas as (
+    select
+        season,
+        team_long_name,
+        avg(case when match.home_team_api_id = team.team_api_id THEN match.b365h else match.b365a END) as b365,
+        avg(case when match.home_team_api_id = team.team_api_id THEN match.bwh else match.bwa END) as bw,
+        avg(case when match.home_team_api_id = team.team_api_id THEN match.iwh else match.iwa END) as iw,
+        avg(case when match.home_team_api_id = team.team_api_id THEN match.lbh else match.lba END) as lb,
+        avg(case when match.home_team_api_id = team.team_api_id THEN match.psh else match.psa END) as ps,
+        avg(case when match.home_team_api_id = team.team_api_id THEN match.whh else match.wha END) as wa,
+        avg(case when match.home_team_api_id = team.team_api_id THEN match.sjh else match.sja END) as sj,
+        avg(case when match.home_team_api_id = team.team_api_id THEN match.vch else match.vca END) as vc,
+        avg(case when match.home_team_api_id = team.team_api_id THEN match.gbh else match.gba END) as gb,
+        avg(case when match.home_team_api_id = team.team_api_id THEN match.bsh else match.bsa END) as bs
+    from match
+    join team on team_api_id = match.home_team_api_id or team_api_id = match.away_team_api_id
+    join league l on match.league_id = l.id
+    group by name_league, season, team_long_name
+), apuestas_2016 as(
+    select
+        season,
+        team_long_name,
+        avg((coalesce(b365, 0) + coalesce(bw, 0) + coalesce(iw, 0) + coalesce(lb, 0) + coalesce(ps, 0) + coalesce(wa, 0) + coalesce(sj, 0) + coalesce(vc, 0) + coalesce(gb, 0) + coalesce(bs, 0)) / 10) as avg_apuesta
+    from apuestas
+    where season = '2015/2016'
+    group by team_long_name, season
+), apuestas_2015 as(
+    select
+        season,
+        team_long_name,
+        avg((coalesce(b365, 0) + coalesce(bw, 0) + coalesce(iw, 0) + coalesce(lb, 0) + coalesce(ps, 0) + coalesce(wa, 0) + coalesce(sj, 0) + coalesce(vc, 0) + coalesce(gb, 0) + coalesce(bs, 0)) / 10) as avg_apuesta
+    from apuestas
+    where season = '2014/2015'
+    group by team_long_name, season
+), apuestas_2014 as(
+    select
+        season,
+        team_long_name,
+        avg((coalesce(b365, 0) + coalesce(bw, 0) + coalesce(iw, 0) + coalesce(lb, 0) + coalesce(ps, 0) + coalesce(wa, 0) + coalesce(sj, 0) + coalesce(vc, 0) + coalesce(gb, 0) + coalesce(bs, 0)) / 10) as avg_apuesta
+    from apuestas
+    where season = '2013/2014'
+    group by team_long_name, season
+)
+
+select
+    apuestas_2016.team_long_name,
+    apuestas_2016.avg_apuesta,
+    apuestas_2015.avg_apuesta,
+    apuestas_2014.avg_apuesta,
+    (apuestas_2014.avg_apuesta - apuestas_2016.avg_apuesta)/2.0 as pendiente
+from apuestas_2016
+join apuestas_2015 on apuestas_2016.team_long_name = apuestas_2015.team_long_name
+join apuestas_2014 on apuestas_2016.team_long_name = apuestas_2014.team_long_name
+where apuestas_2016.avg_apuesta != 0 and apuestas_2014.avg_apuesta != 0
+order by pendiente desc, apuestas_2016.avg_apuesta
+limit 10;
+
 
