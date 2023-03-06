@@ -1,5 +1,5 @@
 -- Etapa 3
--- Mejora de partidos ganados por equipo en las últimas 3 temporadas
+-- 1. Mejora de partidos ganados por equipo en las últimas 3 temporadas
 
 with partidos as (
     select ganador, date_game, match.id, match.season
@@ -52,7 +52,7 @@ group by partidos_2014.team_long_name, partidos_2014.cantidad_2014, partidos_201
 order by pendiente desc, cantidad_2016 desc
 limit 10;
 
--- Mejora de diferencia de goles en las útlimas 3 temporadas
+-- 2. Mejora de diferencia de goles en las útlimas 3 temporadas
 
 with differencia_goles as (
 SELECT
@@ -87,7 +87,7 @@ join diferencia_goles_2016 on diferencia_goles_2014.equipo = diferencia_goles_20
 order by pendiente desc, diferencia_2016 desc
 limit 10;
 
--- Equipos con los mejores aumentos de atributos en las últimas 3 temporadas
+-- 3. Equipos con los mejores aumentos de atributos en las últimas 3 temporadas
 with atributes_2014 as (
     select *
     from team_atributes
@@ -121,7 +121,7 @@ join team on team.team_fifa_api_id = atributes_2014.team_fifa_api_id
 order by defenceAggression desc, defencePressure desc, buildUpPlaySpeed desc, chanceCreationPassing desc, buildUpPlayPassing desc, chanceCreationCrossing desc, chanceCreationShooting desc
 limit 10;
 
---Equipos con jugadores más jovenes
+-- 4. Equipos con jugadores más jovenes
 WITH jugadores AS (
     SELECT
         p.player_name,
@@ -153,7 +153,7 @@ GROUP BY team_long_name
 HAVING COUNT(*) > 0
 order by jugadores_menores_28 desc;
 
---Equipos con mejores jugadores
+-- 5. Equipos con mejores jugadores
 SELECT 
     team.team_long_name, 
     AVG(pa.potential) as avg_potential, 
@@ -178,6 +178,7 @@ GROUP BY team.team_long_name
 ORDER BY avg_potential DESC, avg_rating DESC
 limit 10;
 
+-- 6. Equipos con mejora en cuanto a apuestas
 with apuestas as (
     select
         season,
@@ -235,44 +236,8 @@ where apuestas_2016.avg_apuesta != 0 and apuestas_2014.avg_apuesta != 0
 order by pendiente desc, apuestas_2016.avg_apuesta
 limit 10;
 
--- Jugadores y a que equipo pertenecen
-select distinct
-    player.player_name,
-    match.season,
-    case
-        when player_api_id in (match.home_player_1, match.home_player_2, match.home_player_3, match.home_player_4, match.home_player_5, match.home_player_6, match.home_player_7, match.home_player_8, match.home_player_9, match.home_player_10, match.home_player_11) then home_team.team_long_name
-        when player_api_id in (match.away_player_1, match.away_player_2, match.away_player_3, match.away_player_4, match.away_player_5, match.away_player_6, match.away_player_7, match.away_player_8, match.away_player_9, match.away_player_10, match.away_player_11) then away_team.team_long_name
-    end as team_name
-from match
-join player ON player.player_api_id IN (
-    match.home_player_1,
-    match.home_player_2,
-    match.home_player_3,
-    match.home_player_4,
-    match.home_player_5,
-    match.home_player_6,
-    match.home_player_7,
-    match.home_player_8,
-    match.home_player_9,
-    match.home_player_10,
-    match.home_player_11,
-    match.away_player_1,
-    match.away_player_2,
-    match.away_player_3,
-    match.away_player_4,
-    match.away_player_5,
-    match.away_player_6,
-    match.away_player_7,
-    match.away_player_8,
-    match.away_player_9,
-    match.away_player_10,
-    match.away_player_11
-)
-LEFT JOIN team home_team ON home_team.team_api_id = match.home_team_api_id
-LEFT JOIN team away_team ON away_team.team_api_id = match.away_team_api_id
-where player_name = 'Cristiano Ronaldo';
 
--- Mejores equipos en las últimas 3 temporadas
+-- 7. Mejores equipos en las últimas 3 temporadas
 with mejores_equipos as (
     select
         ganador,
